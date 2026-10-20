@@ -18,6 +18,7 @@ My Windows 11 rice: a [YASB](https://github.com/amnweb/yasb) bar, [Windhawk](htt
 | `windows/accent.reg` | Balloon-red accent color for Windows |
 | `helium/` | Chromium theme (works in Helium, Chrome, Brave…) with a gradient new-tab page |
 | `vscode/` | Red Balloon color theme for VS Code (source and `.vsix`) |
+| `zapfast/` | Night and day themes for ZapFast (copy to `%APPDATA%\paolino\zapfast\config\themes\`) |
 
 ## The bar
 
