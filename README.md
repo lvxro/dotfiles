@@ -52,6 +52,7 @@ Install [Windhawk](https://windhawk.net) and these mods from its Explore tab:
 | Translucent Windows | Teal blur behind Explorer, context menus and classic windows |
 | Windows 11 Notification Center Styler | TintedGlass in teal, peach accent, 12px corners |
 | Better file sizes in Explorer details | Folder sizes via [Everything](https://www.voidtools.com/) (enable *Index folder size* in its options) |
+| Taskbar auto-hide fine tuning | Mode *Never*: the Windows taskbar never shows, YASB replaces it. Needs taskbar auto-hide on. `` Alt+` `` toggles it back if you need it |
 
 For each mod, open **Details → Settings → Advanced** and paste the matching file from `windhawk/`.
 
