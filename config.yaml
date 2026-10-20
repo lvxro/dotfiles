@@ -11,7 +11,7 @@ bars:
     screens:
     - '*'
     class_name: yasb-bar
-    style: "bar"           # "adaptive" = riel arriba + islas por grupo
+    style: "bar"           # "adaptive" = top rail + islands per group
     alignment:
       position: top
       align: center
@@ -36,12 +36,12 @@ bars:
     widgets:
       left:
       - home
-      - quick_launch     # invisible por CSS; tiene que estar en la barra para que ande Alt+Espacio
+      - quick_launch     # hidden via CSS; must stay in the bar for Alt+Space to work
       - active_window
       center:
       - clock
       right:
-      # Islas: los widgets de cada grouper NO van sueltos acá
+      # Islands: a grouper's widgets must NOT also be listed here
       - music-island      # media + visualizador
       - system-island     # clima, tray, volumen, notificaciones, control center
 widgets:
@@ -67,7 +67,7 @@ widgets:
       label: "<span>{icon}</span>{temp}"
       label_alt: "{location} · {condition_text} · ↓{min_temp} ↑{max_temp}"
       tooltip: true
-      update_interval: 1800   # cada 30 min: Open-Meteo devolvía 503 con pedidos más seguidos
+      update_interval: 1800   # every 30 min: Open-Meteo returned 503 with more frequent requests
       hide_decimal: true
       units: "metric"
       forecast_days: 7
@@ -140,7 +140,7 @@ widgets:
   volume:
     type: yasb.volume.VolumeWidget
     options:
-      label: "<span>{icon}</span>"   # solo \u00edcono; el % queda en el tooltip
+      label: "<span>{icon}</span>"   # icon only; the % is in the tooltip
       label_alt: "<span>{icon}</span> {level}"
       tooltip: true
       icons:
@@ -217,15 +217,15 @@ widgets:
   active_window:
     type: yasb.active_window.ActiveWindowWidget
     options:
-      label: '{win[app_name]}'     # solo el nombre de la app
-      label_alt: '{win[title]}'    # click: título completo (limpiado por rewrite)
+      label: '{win[app_name]}'     # app name only
+      label_alt: '{win[title]}'    # click: full title (cleaned by rewrite)
       label_no_window: ''
       label_icon: true
       label_icon_size: 14
       max_length: 32
       max_length_ellipsis: '...'
-      # Saca el nombre de la app del final del título. YASB ignora reemplazos vacíos,
-      # por eso se captura lo que queda con (.*?) y se reemplaza por \1.
+      # Strips the app name from the end of the title. YASB ignores empty replacements,
+      # so the rest is captured with (.*?) and replaced with \1.
       rewrite:
         - pattern: '^(.*?) [-–—] Google Chrome$'
           replacement: '\1'
@@ -239,7 +239,7 @@ widgets:
           replacement: '\1'
       monitor_exclusive: false
       ignore_window:
-        processes: ["spotifast.exe"]   # lo que suena ya está en la isla de música
+        processes: ["spotifast.exe"]   # what's playing is already shown in the music island
   win_button:
       type: "yasb.custom.CustomWidget"
       options:
@@ -368,7 +368,7 @@ widgets:
   media:
     type: "yasb.media.MediaWidget"
     options:
-      # artista y separador en salvia apagado, más liviano; necesita scrolling_label apagado (QLabel acepta HTML)
+      # artist and separator in dim sage, lighter weight; needs scrolling_label off (QLabel accepts HTML)
       label: "{title}<span style='color:#7FA39A; font-weight:400'>{s}{artist}</span>"
       label_alt: "{artist}"
       separator: " · "
@@ -378,10 +378,10 @@ widgets:
         on_middle: "toggle_play_pause"
         on_right: "toggle_label"
       max_field_size:
-        label: 24                    # por campo: título y artista se cortan por separado
+        label: 24                    # per field: title and artist are truncated separately
         label_alt: 40
-        truncate_whole_label: false  # truncar el label entero cortaría las etiquetas <span>
-      show_thumbnail: false   # solo nombre y artista, sin fondo del álbum
+        truncate_whole_label: false  # truncating the whole label would cut the <span> tags
+      show_thumbnail: false   # title and artist only, no album art
       controls_only: false
       controls_left: true
       controls_hide: false
@@ -416,7 +416,7 @@ widgets:
         prev_track: "\udb81\udcae"
         next_track: "\udb81\udcad"
       scrolling_label:
-        enabled: false   # el scroll dibuja texto plano y mostraría el HTML crudo
+        enabled: false   # the scrolling label draws plain text and would show the raw HTML
         update_interval_ms: 33
         style: "bounce-ease"  # can be "left", "right", "bounce", "bounce-ease"
         separator: " | "

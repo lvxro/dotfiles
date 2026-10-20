@@ -5,9 +5,9 @@
 
     --icons-font: "JetBrainsMono NFP", "JetBrainsMono Nerd Font Propo";
     --icons-font-fallback: "JetBrainsMono NFP", "JetBrainsMono Nerd Font Propo";
-    --system-font: "Zen Kaku Gothic New", "Yu Gothic UI", "Segoe UI Variable", "Segoe UI";  /* latín y japonés en la misma familia */
+    --system-font: "Zen Kaku Gothic New", "Yu Gothic UI", "Segoe UI Variable", "Segoe UI";  /* Latin and Japanese in the same family */
     --specialFont: "Zen Kaku Gothic New", "Yu Gothic UI", "Segoe UI Variable", "Segoe UI";
-    --clockFont: "Zen Kaku Gothic New", "Yu Gothic UI", "Segoe UI Variable", "Segoe UI";  /* reloj + calendario */
+    --clockFont: "Zen Kaku Gothic New", "Yu Gothic UI", "Segoe UI Variable", "Segoe UI";  /* clock + calendar */
     --border-radius: 16;
     --border-radius2: 14;
     --border-radius3: 12;
@@ -187,27 +187,27 @@
     --redFlash: #E59875;
     --subtext: #859289; */
 
-    /* Balcón Carmesí (noche) — paleta sacada del wallpaper del balcón */
-    --background: #08202B;   /* Abismo teal: pastilla de cada widget */
-    --background2: #173C49;  /* Azul sombra de alero */
-    --accent: #FCCCA8;       /* Durazno de atardecer (reloj, workspace activo) */
+    /* Red Balloon (night) — palette taken from the wallpaper */
+    --background: #08202B;   /* Deep teal: widget pill */
+    --background2: #173C49;  /* Eave-shadow blue */
+    --accent: #FCCCA8;       /* Sunset peach (clock, active workspace) */
     --text: #F4E6DA;         /* Crema papel */
-    --accentText: #061322;   /* Abismo de cables, texto sobre durazno */
+    --accentText: #061322;   /* Power-line dark, text on peach */
     --hover: #1D5866;        /* Teal cielo oscurecido */
     --mutedBG: #0F3340;
     --border: #1F4B58;
-    --redFlash: #FF7A70;     /* Globo carmesí aclarado para UI */
-    --subtext: #A9CBC1;      /* Salvia de nube */
-    --carmesi: #FF6B6B;      /* El detalle rojo: visualizador de audio */
-    --popupBG: rgba(8, 32, 43, 0.74);  /* Teal noche translúcido para popups con desenfoque */
+    --redFlash: #FF7A70;     /* Lightened balloon red for UI */
+    --subtext: #A9CBC1;      /* Cloud sage */
+    --crimson: #FF6B6B;      /* The red accent */
+    --popupBG: rgba(8, 32, 43, 0.74);  /* Translucent night teal for blurred popups */
     --dim: #5E8285;
     --text-muted: var(--subtext);
-    --pill: rgba(8, 32, 43, 0.80);       /* Islas semitransparentes: deja pasar el cielo */
-    --pillHover: rgba(29, 88, 102, 0.55);/* Hover dentro de una isla */
-    --globo: #C4161C;                    /* Rojo globo puro, para fondos */
-    --globoBorder: #FF6B6B;              /* Rojo globo claro, para bordes en hover */
+    --pill: rgba(8, 32, 43, 0.80);       /* Semi-transparent islands: lets the sky through */
+    --pillHover: rgba(29, 88, 102, 0.55);/* Hover inside an island */
+    --balloon: #C4161C;                    /* Pure balloon red, for backgrounds */
+    --balloonLight: #FF6B6B;              /* Light balloon red, for hover borders */
 
-    /* Balcón Carmesí (día) — descomentá este bloque y comentá el de arriba */
+    /* Red Balloon (day) — uncomment this block and comment out the one above */
     /* --background: #F4E6DA;
     --background2: #EADACB;
     --accent: #0E5F70;
@@ -218,7 +218,7 @@
     --border: #D4BFAE;
     --redFlash: #B2000E;
     --subtext: #3F5F66;
-    --carmesi: #B2000E;
+    --crimson: #B2000E;
     --popupBG: rgba(244, 230, 218, 0.78);
     --dim: #66797B; */
 
@@ -362,11 +362,11 @@
     transition: all 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 .widget:hover {
-    border: 1px solid var(--globoBorder);
+    border: 1px solid var(--balloonLight);
     background-color: rgba(8, 32, 43, 0.94);
 }
 
-/* Feedback al click en cualquier widget */
+/* Click feedback on any widget */
 .widget-container {
     opacity: 1.0;
     transition: opacity 90ms ease-out;
@@ -376,7 +376,7 @@
     opacity: 0.55;
 }
 
-/* ---------- Islas (groupers) ---------- */
+/* ---------- Islands (groupers) ---------- */
 .music-island,
 .system-island,
 .alert-island,
@@ -389,7 +389,7 @@
 .alert-island .container {
     background-color: transparent;
 }
-/* Los widgets dentro de una isla pierden su propia pastilla */
+/* Widgets inside an island drop their own pill */
 .music-island .widget,
 .system-island .widget,
 .alert-island .widget {
@@ -420,9 +420,9 @@
     padding-bottom: 2px;
 }
 
-/* Home Menu — el 家 lleva el rojo de los globos */
-/* 家: rojo apagado en reposo, "se enciende" al pasar el mouse.
-   (Qt no soporta text-shadow/box-shadow, así que el brillo es por color y borde) */
+/* Home Menu — the 家 button wears the balloon red */
+/* 家: dim red at rest, "lights up" on hover.
+   (Qt does not support text-shadow/box-shadow, so the glow is color + border) */
 .home-widget {
     background-color: #9E1217;
     border: 1px solid #9E1217;
@@ -476,10 +476,10 @@
     padding: 2px 8px;
     transition: all 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-/* Hover: la pastilla se estira y se ilumina, con borde rojo globo */
+/* Hover: the pill stretches and brightens, with a balloon-red border */
 .clock-widget .widget-container:hover {
     background-color: #FFDEC4;
-    border: 1px solid var(--globoBorder);
+    border: 1px solid var(--balloonLight);
     padding: 2px 16px;
 }
 
@@ -491,8 +491,8 @@
     font-weight: 700;
 }
 
-/* Sin la píldora oscura de .widget por debajo: la durazno ocupa todo el alto,
-   igual que las demás islas */
+/* No dark .widget pill underneath: the peach pill takes the full height,
+   same as the other islands */
 .clock-widget,
 .clock-widget:hover {
     padding: 0px;
@@ -868,7 +868,7 @@
     background-color: var(--hover);
 }
 
-/* Active Windows Title — contexto, no widget: sin pastilla, en salvia */
+/* Active Windows Title — context, not a widget: no pill, in sage */
 .active-window-widget {
     background-color: rgba(8, 32, 43, 0.62);
     border: 1px solid transparent;
@@ -998,7 +998,7 @@
     background: var(--background);
 }
 .systray .unpinned-visibility-btn {
-    /* sin esto la flecha del tray cae en una fuente sin el glifo y se ve como "τ" */
+    /* without this the tray arrow falls back to a font without the glyph and shows as "τ" */
     font-family: var(--icons-font);
     font-size: 14px;
     color: var(--subtext);
@@ -1031,7 +1031,7 @@
 
 /* notification-widget */
 .notification-widget .icon {
-    color: var(--carmesi);
+    color: var(--crimson);
     text-shadow: 0px 0px 6px rgba(255, 107, 107, 0.65);
 }
 
@@ -1058,7 +1058,7 @@
 .media-widget .btn.disabled {
     color: var(--dim);
 }
-/* prev/next casi apagados; se encienden al pasarles el mouse */
+/* prev/next almost dimmed; they light up on hover */
 .media-widget .btn.prev,
 .media-widget .btn.next {
     color: rgba(169, 203, 193, 0.35);
@@ -1075,7 +1075,7 @@
     margin: 0px 10px 1px 10px;
 }
 .media-widget .progress-bar::chunk {
-    background-color: var(--carmesi);
+    background-color: var(--crimson);
     border-radius: 1px;
 }
 
@@ -1098,7 +1098,7 @@
 }
 .open-meteo-widget .icon.thunderstormDay,
 .open-meteo-widget .icon.thunderstormNight {
-    color: var(--carmesi);
+    color: var(--crimson);
 }
 .open-meteo-widget .label {
     color: var(--text);
@@ -1139,7 +1139,7 @@
 }
 .open-meteo-card-day.active {
     background-color: var(--background2);
-    border: 1px solid var(--globoBorder);
+    border: 1px solid var(--balloonLight);
 }
 .open-meteo-card-day:hover {
     background-color: var(--hover);
@@ -1334,7 +1334,7 @@ Example: "Windows Media" becomes "windows-media" */
     color: #ffffff;
 }
 .media-menu .source.spotify {
-    background-color: var(--globo);
+    background-color: var(--balloon);
     color: var(--text);
 }
 .media-menu .source.tidal {
@@ -1413,7 +1413,7 @@ Example: "Windows Media" becomes "windows-media" */
     background: var(--background2);
 }
 .media-menu .progress-slider::sub-page {
-    background: var(--carmesi);
+    background: var(--crimson);
     border-radius: 3px;
     height: 4px;
 }
@@ -1425,7 +1425,7 @@ Example: "Windows Media" becomes "windows-media" */
     border-radius: 5px;
 }
 
-/* Volumen por app dentro del popup de media */
+/* Per-app volume inside the media popup */
 .media-menu .app-volume-container {
     background-color: transparent;
     padding: 4px 10px 10px 10px;
@@ -1523,7 +1523,7 @@ Example: "Windows Media" becomes "windows-media" */
 
 /* Launcher */
 /* Quick Launch Widget */
-/* Botón de búsqueda oculto: el widget sigue cargado para que funcione Alt+Espacio */
+/* Search button hidden: the widget stays loaded so Alt+Space keeps working */
 .quick-launch-widget,
 .quick-launch-widget:hover {
     max-width: 0px;
@@ -1826,7 +1826,7 @@ Example: "Windows Media" becomes "windows-media" */
     padding: 0 4px 12px 4px;
 }
 
-/* Grouper sysInfo: una sola píldora, CPU y RAM sin pastilla propia */
+/* sysInfo grouper: a single pill, CPU and RAM without their own pill */
 .systeminfo-grouper .widget,
 .systeminfo-grouper .widget:hover {
     background-color: transparent;
@@ -2168,10 +2168,11 @@ which is 16 pixels same as the other sections. */
     margin-left: 0;
 }
 
-/* ---------- Isla de música (media + visualizador en una sola píldora) ----------
-   Bug de YASB: si no hay audio al arrancar, el visualizador queda con ancho 0 pero
-   no "oculto", y el grouper no se esconde. Por eso la isla no tiene padding ni borde
-   propios: vacía mide 0px y no se ve. El aire interno lo ponen los hijos. */
+/* ---------- Music island (media + visualizer in a single pill) ----------
+   YASB bug: if there is no audio at startup, the visualizer is left at width 0 but
+   not "hidden", so the grouper never hides. That is why the island has no padding
+   or border of its own: when empty it is 0px wide and invisible. The children
+   provide the inner spacing. */
 .music-island {
     padding: 0px;
     margin: 1px 4px;
@@ -2201,13 +2202,13 @@ which is 16 pixels same as the other sections. */
     border: none;
 }
 .audio-visualizer-widget .audio-visualizer-canvas {
-    /* barras finas en durazno, más sutiles que las rojas */
+    /* thin peach bars, subtler than the red ones */
     -qproperty-fillbrush: linear-gradient(to top, rgba(252, 204, 168, 0.45), #FCCCA8);
 }
 
 /* =====================================================================
-   MODO ADAPTIVE — riel arriba + una isla por grupo (izq / centro / der)
-   Sólo aplica con `style: "adaptive"` en config.yaml.
+   ADAPTIVE MODE — top rail + one island per group (left / center / right)
+   Only applies with `style: "adaptive"` in config.yaml.
    ===================================================================== */
 .yasb-bar.adaptive {
     background-color: rgba(8, 32, 43, 0.90);
@@ -2227,7 +2228,7 @@ which is 16 pixels same as the other sections. */
     padding-right: 6px;
 }
 
-/* Dentro de la isla los widgets no llevan pastilla propia */
+/* Inside the island widgets have no pill of their own */
 .yasb-bar.adaptive .widget {
     background-color: transparent;
     border: 1px solid transparent;
@@ -2240,7 +2241,7 @@ which is 16 pixels same as the other sections. */
     border: 1px solid transparent;
 }
 
-/* Las islas de la derecha pasan a ser segmentos dentro de la isla */
+/* The right-side islands become segments inside the island */
 .yasb-bar.adaptive .music-island,
 .yasb-bar.adaptive .system-island,
 .yasb-bar.adaptive .alert-island {
@@ -2254,7 +2255,7 @@ which is 16 pixels same as the other sections. */
 .yasb-bar.adaptive .system-island:hover,
 .yasb-bar.adaptive .alert-island:hover {
     background-color: rgba(23, 60, 73, 0.75);
-    border: 1px solid var(--globoBorder);
+    border: 1px solid var(--balloonLight);
 }
 .yasb-bar.adaptive .music-island .widget,
 .yasb-bar.adaptive .system-island .widget,
@@ -2263,13 +2264,13 @@ which is 16 pixels same as the other sections. */
     padding: 0px 7px;
 }
 
-/* Acentos que se mantienen: 家 rojo y reloj durazno */
+/* Accents that stay: red 家 and peach clock */
 .yasb-bar.adaptive .home-widget {
-    background-color: var(--globo);
-    border: 1px solid var(--globo);
+    background-color: var(--balloon);
+    border: 1px solid var(--balloon);
 }
 .yasb-bar.adaptive .home-widget:hover {
-    background-color: var(--globoBorder);
+    background-color: var(--balloonLight);
     border: 1px solid var(--accent);
 }
 .yasb-bar.adaptive .clock-widget,
