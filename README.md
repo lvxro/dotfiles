@@ -25,7 +25,7 @@ My Windows 11 rice: a [YASB](https://github.com/amnweb/yasb) bar, [Windhawk](htt
 
 ## The bar
 
-- **Left:** `家` button (folder menu) and the active window (app name only).
+- **Left:** `家` button (folder menu) and a taskbar pill with one icon per open app (click to switch, middle-click to close). The focused app gets a peach tint.
 - **Center:** clock `Mon 19 · 21:14`. Left click opens the calendar; right click shows the full date.
 - **Right:**
   - Music island: controls, title and artist, and an audio visualizer. It hides itself when nothing is playing.

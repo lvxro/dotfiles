@@ -37,7 +37,7 @@ bars:
       left:
       - home
       - quick_launch     # hidden via CSS; must stay in the bar for Alt+Space to work
-      - active_window
+      - taskbar          # open apps, replaces the hidden Windows taskbar
       center:
       - clock
       right:
@@ -214,13 +214,35 @@ widgets:
         cancel:
         - ''
         - Cancel
+  taskbar:
+    type: yasb.taskbar.TaskbarWidget
+    options:
+      icon_size: 16
+      tooltip: true
+      strict_filtering: true
+      monitor_exclusive: false
+      hide_empty: true
+      grouping:
+        enabled: true      # one icon per app
+        show_count: false
+      animation:
+        enabled: true
+        duration: 200
+      title_label:
+        enabled: false     # icons only; the app name is in the next pill
+      preview:
+        enabled: false
+      callbacks:
+        on_left: toggle_window
+        on_middle: close_app
+        on_right: context_menu
   active_window:
     type: yasb.active_window.ActiveWindowWidget
     options:
       label: '{win[app_name]}'     # app name only
       label_alt: '{win[title]}'    # click: full title (cleaned by rewrite)
       label_no_window: ''
-      label_icon: true
+      label_icon: false   # the taskbar pill already shows the icon
       label_icon_size: 14
       max_length: 32
       max_length_ellipsis: '...'

@@ -868,6 +868,35 @@
     background-color: var(--hover);
 }
 
+/* Taskbar — open apps as icons in one pill; the focused app gets a peach tint */
+.taskbar-widget {
+    background-color: rgba(8, 32, 43, 0.62);
+    border: 1px solid transparent;
+    box-shadow: 0px 2px 6px rgba(2, 10, 16, 0.35);
+    padding: 0px 4px;
+}
+.taskbar-widget .app-container {
+    margin: 4px 1px;
+    padding: 0px 6px;
+    border-radius: 9px;
+    border: 1px solid transparent;
+    background-color: transparent;
+}
+.taskbar-widget .app-container:hover {
+    background-color: var(--pillHover);
+}
+.taskbar-widget .app-container.foreground {
+    background-color: rgba(252, 204, 168, 0.18);
+    border: 1px solid rgba(252, 204, 168, 0.45);
+}
+.taskbar-widget .app-container.running.minimized {
+    opacity: 0.5;
+}
+.taskbar-widget .app-container.flashing {
+    background-color: rgba(255, 107, 107, 0.25);
+    border: 1px solid var(--crimson);
+}
+
 /* Active Windows Title — context, not a widget: no pill, in sage */
 .active-window-widget {
     background-color: rgba(8, 32, 43, 0.62);
