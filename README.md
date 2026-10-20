@@ -20,6 +20,7 @@ My Windows 11 rice: a [YASB](https://github.com/amnweb/yasb) bar, [Windhawk](htt
 | `vscode/` | Red Balloon color theme for VS Code (source and `.vsix`) |
 | `nilesoft/theme.nss` | Right-click menu theme for [Nilesoft Shell](https://nilesoft.org) (copy to `C:\Program Files\Nilesoft Shell\imports\`, needs admin) |
 | `discord/` | [midnight](https://github.com/refact0r/midnight-discord) by refact0r, recolored to the palette (Vencord/Equicord/BetterDiscord: drop it in the themes folder) |
+| `steam/quick.css` | Palette for [SpaceTheme](https://github.com/SpaceTheme/Steam) on [Millennium](https://steambrew.app); install the theme, then copy this to `Steam\millennium\config\` |
 | `zapfast/` | Night and day themes for ZapFast (copy to `%APPDATA%\paolino\zapfast\config\themes\`) |
 
 ## The bar

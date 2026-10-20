@@ -1,0 +1,49 @@
+/* Red Balloon palette for SpaceTheme (Millennium)
+   Copy to "C:\Program Files (x86)\Steam\millennium\config\quick.css".
+   Lives in quick.css so theme updates do not overwrite it. */
+:root {
+    /* balloon red accent: Steam draws white text on accent buttons */
+    --st-accent-1: 210, 30, 38 !important;    /* #D21E26 */
+    --st-accent-2: 229, 38, 45 !important;    /* #E5262D */
+
+    /* night teal surfaces, darkest to lightest */
+    --st-background: 4, 18, 26 !important;    /* #04121A */
+    --st-color-1: 6, 26, 36 !important;       /* #061A24 */
+    --st-color-3: 8, 32, 43 !important;       /* #08202B */
+    --st-color-4: 11, 39, 50 !important;      /* #0B2732 */
+    --st-color-2: 15, 51, 64 !important;      /* #0F3340 */
+    --st-color-5: 21, 68, 83 !important;      /* #154453 */
+    --st-color-6: 29, 79, 94 !important;      /* #1D4F5E */
+
+    /* status colors from the terminal scheme */
+    --st-red: 255, 107, 107 !important;       /* #FF6B6B */
+    --st-red-hover: 255, 138, 128 !important;
+    --st-green: 68, 175, 155 !important;      /* #44AF9B */
+    --st-green-hover: 92, 200, 176 !important;
+    --st-blue: 111, 183, 201 !important;      /* #6FB7C9 */
+    --st-blue-hover: 159, 211, 230 !important;
+    --st-yellow: 245, 185, 113 !important;    /* #F5B971 */
+    --st-yellow-hover: 252, 204, 168 !important;
+}
+
+/* Same font as the YASB bar. quick.css loads before the theme, so these
+   selectors are more specific than SpaceTheme's to win anyway. */
+html body * {
+    font-family: 'Zen Kaku Gothic New', 'Be Vietnam Pro', sans-serif !important;
+}
+
+/* Library home: hide "What's New" and the empty "Add shelf" bar */
+._17uEBe5Ri8TMsnfELvs8-N,
+._3SkuN_ykQuWGF94fclHdhJ {
+    display: none !important;
+}
+
+/* Titlebar logo: "Steam" in peach instead of "SpaceTheme" */
+html body .bSKGlAJG2UVWTsntEJY2v.bSKGlAJG2UVWTsntEJY2v::after {
+    content: "" !important;
+}
+html body ._2UyOBeiSdBayaFdRa39N2O._2UyOBeiSdBayaFdRa39N2O:nth-of-type(1)::after {
+    content: "Steam" !important;
+    font-weight: 700 !important;
+    color: #FCCCA8 !important;
+}
