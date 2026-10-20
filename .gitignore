@@ -1,0 +1,9 @@
+# Generados por YASB
+yasb.log
+yasb_colors.css
+
+# Backups manuales (ahora el historial vive en git)
+*.backup.*
+*.islas.*
+*.pre-*.yaml
+*.pre-*.css
