@@ -1,0 +1,58 @@
+{
+    "profiles": {
+        "defaults": {
+            "colorScheme": "Red Balloon",
+            "font": {
+                "face": "JetBrainsMono Nerd Font",
+                "size": 11
+            },
+            "opacity": 85,
+            "useAcrylic": true,
+            "padding": "14, 10",
+            "cursorShape": "bar"
+        }
+    },
+    "schemes": [
+        {
+            "name": "Red Balloon",
+            "background": "#08202B",
+            "foreground": "#F4E6DA",
+            "cursorColor": "#FCCCA8",
+            "selectionBackground": "#1D5866",
+            "black": "#173C49",
+            "red": "#FF6B6B",
+            "green": "#44AF9B",
+            "yellow": "#F5B971",
+            "blue": "#6FB7C9",
+            "purple": "#E3A3A8",
+            "cyan": "#5CC8C0",
+            "white": "#DFD2C4",
+            "brightBlack": "#5E8285",
+            "brightRed": "#FF8A80",
+            "brightGreen": "#7FE0C8",
+            "brightYellow": "#FCCCA8",
+            "brightBlue": "#9FD3E6",
+            "brightPurple": "#F2C3C6",
+            "brightCyan": "#A9E8E0",
+            "brightWhite": "#FBF4EE"
+        }
+    ],
+    "themes": [
+        {
+            "name": "Red Balloon",
+            "tab": {
+                "background": "#08202BFF",
+                "unfocusedBackground": "#061822FF",
+                "showCloseButton": "hover"
+            },
+            "tabRow": {
+                "background": "#061822FF",
+                "unfocusedBackground": "#061822FF"
+            },
+            "window": {
+                "applicationTheme": "dark"
+            }
+        }
+    ],
+    "theme": "Red Balloon"
+}

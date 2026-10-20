@@ -1,6 +1,6 @@
 # dotfiles — Red Balloon
 
-My [YASB](https://github.com/amnweb/yasb) bar for Windows 11. The palette comes from the wallpaper: night teal, cream, peach and the red of the balloons.
+My Windows 11 rice: a [YASB](https://github.com/amnweb/yasb) bar, [Windhawk](https://windhawk.net) mods, Windows Terminal and fastfetch, all sharing one palette taken from the wallpaper: night teal, cream, peach and the red of the balloons.
 
 ![wallpaper](wallpaper/red-balloon.jpg)
 
@@ -11,6 +11,11 @@ My [YASB](https://github.com/amnweb/yasb) bar for Windows 11. The palette comes 
 | `config.yaml` | YASB widgets and layout |
 | `styles.css` | Red Balloon theme (also includes a commented-out day variant) |
 | `wallpaper/red-balloon.jpg` | The wallpaper the palette is based on |
+| `windhawk/*.ini` | Settings for each Windhawk mod |
+| `terminal/red-balloon.json` | Windows Terminal color scheme, tab theme and profile defaults |
+| `powershell/` | Prompt colors and the profile snippet that runs fastfetch |
+| `fastfetch/` | fastfetch config and the sixel logo |
+| `windows/accent.reg` | Balloon-red accent color for Windows |
 
 ## The bar
 
@@ -37,6 +42,30 @@ My [YASB](https://github.com/amnweb/yasb) bar for Windows 11. The palette comes 
 5. In Settings → Personalization → Taskbar, turn on **Automatically hide the taskbar**.
 6. Restart YASB (`yasbc reload`).
 
+### Windhawk
+
+Install [Windhawk](https://windhawk.net) and these mods from its Explore tab:
+
+| Mod | What it does here |
+|---|---|
+| Windows 11 File Explorer Styler | TintedGlass theme tinted with the bar's teal |
+| Translucent Windows | Teal blur behind Explorer, context menus and classic windows |
+| Windows 11 Notification Center Styler | TintedGlass in teal, peach accent, 12px corners |
+| Better file sizes in Explorer details | Folder sizes via [Everything](https://www.voidtools.com/) (enable *Index folder size* in its options) |
+
+For each mod, open **Details → Settings → Advanced** and paste the matching file from `windhawk/`.
+
+### Terminal, PowerShell and fastfetch
+
+1. Install [fastfetch](https://github.com/fastfetch-cli/fastfetch) (`winget install fastfetch`). [Starship](https://starship.rs) is optional; without it the prompt in `powershell/prompt.ps1` is used.
+2. Copy `fastfetch/` to `%USERPROFILE%\.config\fastfetch\` and `powershell/prompt.ps1` to `%USERPROFILE%\.config\red-balloon\prompt.ps1`.
+3. Append `powershell/profile.ps1` to your `$PROFILE`.
+4. In Windows Terminal, open **Settings → Open JSON file** and merge in `terminal/red-balloon.json`. The logo is drawn with sixel, which needs Windows Terminal 1.22 or newer.
+
+### Accent color
+
+Double-click `windows/accent.reg`, then sign out and back in so every part of Windows picks up the new accent.
+
 ## Things you may want to change
 
 - **Spotifast:** `active_window.ignore_window` excludes `spotifast.exe`, since the current song is already shown in the music island. If you use Spotify, change it to `Spotify.exe`.
@@ -45,4 +74,4 @@ My [YASB](https://github.com/amnweb/yasb) bar for Windows 11. The palette comes 
 
 ## Credits
 
-The wallpaper is not mine; all credit goes to the original artist. If you know who made it, let me know and I'll add it here.
+The wallpaper and the fastfetch logo are not mine; all credit goes to the original artist. If you know who made them, let me know and I'll add it here.
