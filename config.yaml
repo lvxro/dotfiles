@@ -237,6 +237,8 @@ widgets:
           replacement: '\1'
         - pattern: '^(.*?)(?: and \d+ more tabs?)? [-–—] File Explorer$'
           replacement: '\1'
+        - pattern: '^(Steam) Client WebHelper$'   # Steam's UI process name
+          replacement: '\1'
       monitor_exclusive: false
       ignore_window:
         processes: ["spotifast.exe"]   # what's playing is already shown in the music island
