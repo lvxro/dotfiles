@@ -1,0 +1,147 @@
+/**
+ * @name midnight · Red Balloon
+ * @description refact0r's midnight theme recolored with the Red Balloon palette: night teal, peach and the red of the balloons.
+ * @author lvxro (theme by refact0r)
+ * @version 2.1.1
+ * @website https://github.com/lvxro/dotfiles
+ * @source https://github.com/refact0r/midnight-discord
+*/
+
+/* import theme modules */
+@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+
+body {
+    /* font options */
+    --font: 'Zen Kaku Gothic New'; /* same font as the YASB bar */
+    --code-font: 'JetBrainsMono Nerd Font';
+    font-weight: 400;
+
+    /* sizes */
+    --gap: 12px;
+    --divider-thickness: 4px;
+    --border-thickness: 1px;
+
+    /* animation/transition options */
+    --animations: on;
+    --list-item-transition: 0.2s ease;
+    --dms-icon-svg-transition: 0.4s ease;
+    --border-hover-transition: 0.2s ease;
+
+    /* top bar options */
+    --top-bar-height: var(--gap);
+    --top-bar-button-position: titlebar;
+    --top-bar-title-position: off;
+    --subtle-top-bar-title: off;
+
+    /* window controls */
+    --custom-window-controls: on;
+    --window-control-size: 14px;
+
+    /* dms button options */
+    --custom-dms-icon: custom;
+    --dms-icon-svg-url: url('https://refact0r.github.io/midnight-discord/assets/Font_Awesome_5_solid_moon.svg');
+    --dms-icon-svg-size: 90%;
+    --dms-icon-color-before: var(--icon-subtle);
+    --dms-icon-color-after: var(--accent-2);
+    --custom-dms-background: color;
+    --dms-background-image-url: url('');
+    --dms-background-image-size: cover;
+    --dms-background-color: linear-gradient(70deg, #0E3A47, #C4161C); /* dusk teal into balloon red */
+
+    /* background image options */
+    --background-image: off;
+    --background-image-url: url('');
+
+    /* transparency/blur options */
+    --transparency-tweaks: off;
+    --remove-bg-layer: off;
+    --panel-blur: off;
+    --blur-amount: 12px;
+    --bg-floating: var(--bg-3);
+
+    /* chatbar options */
+    --custom-chatbar: off;
+    --chatbar-height: 47px;
+
+    /* other options */
+    --small-user-panel: on;
+}
+
+/* color options — Red Balloon palette */
+:root {
+    --colors: on;
+
+    /* text colors */
+    --text-0: #061322;  /* text on peach buttons */
+    --text-1: #FBF4EE;  /* paper white */
+    --text-2: #F4E6DA;  /* cream: headings */
+    --text-3: #C9D9D3;  /* normal text: light sage */
+    --text-4: #6E8E89;  /* icons and channels */
+    --text-5: #3E5F66;  /* muted channels, timestamps */
+
+    /* background and dark colors */
+    --bg-1: #1D4F5E;    /* dark buttons when clicked */
+    --bg-2: #154453;    /* dark buttons */
+    --bg-3: #08202B;    /* spacing, secondary elements (the bar's pill teal) */
+    --bg-4: #061A24;    /* main background */
+    --hover: rgba(29, 88, 102, 0.25);
+    --active: rgba(29, 88, 102, 0.45);
+    --active-2: rgba(29, 88, 102, 0.6);
+    --message-hover: rgba(0, 0, 0, 0.12);
+
+    /* accent colors: sunset peach */
+    --accent-1: #FCCCA8;
+    --accent-2: #FCCCA8;
+    --accent-3: #F5B88E;
+    --accent-4: #FFDDC2;
+    --accent-5: #E8A67C;
+    --accent-new: #FF6B6B; /* mute/deafen in balloon red */
+    --mention: linear-gradient(to right, color-mix(in hsl, #FF6B6B, transparent 88%) 40%, transparent);
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, #FF6B6B, transparent 94%) 40%, transparent);
+    --reply: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent);
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent);
+
+    /* status indicator colors */
+    --online: var(--green-2);
+    --dnd: var(--red-2);
+    --idle: var(--yellow-2);
+    --streaming: var(--purple-2);
+    --offline: var(--text-4);
+
+    /* border colors */
+    --border-light: var(--hover);
+    --border: #1F4B58;
+    --border-hover: #2B6F80;
+    --button-border: rgba(244, 230, 218, 0.1);
+
+    /* base colors, taken from the terminal scheme */
+    --red-1: #FF8A80;
+    --red-2: #FF6B6B;
+    --red-3: #E5484D;
+    --red-4: #C4161C;
+    --red-5: #9E1217;
+
+    --green-1: #7FE0C8;
+    --green-2: #5CC8B0;
+    --green-3: #44AF9B;
+    --green-4: #369584;
+    --green-5: #2A7A6C;
+
+    --blue-1: #9FD3E6;
+    --blue-2: #84C1DC;
+    --blue-3: #6FB7C9;
+    --blue-4: #5A9FB2;
+    --blue-5: #46889A;
+
+    --yellow-1: #FCCCA8;
+    --yellow-2: #F5B971;
+    --yellow-3: #E9A75E;
+    --yellow-4: #D9954C;
+    --yellow-5: #C4823C;
+
+    --purple-1: #F2C3C6;
+    --purple-2: #E3A3A8;
+    --purple-3: #D48A90;
+    --purple-4: #C27279;
+    --purple-5: #AD5C63;
+}

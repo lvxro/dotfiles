@@ -19,6 +19,7 @@ My Windows 11 rice: a [YASB](https://github.com/amnweb/yasb) bar, [Windhawk](htt
 | `helium/` | Chromium theme (works in Helium, Chrome, Brave…) with a gradient new-tab page |
 | `vscode/` | Red Balloon color theme for VS Code (source and `.vsix`) |
 | `nilesoft/theme.nss` | Right-click menu theme for [Nilesoft Shell](https://nilesoft.org) (copy to `C:\Program Files\Nilesoft Shell\imports\`, needs admin) |
+| `discord/` | [midnight](https://github.com/refact0r/midnight-discord) by refact0r, recolored to the palette (Vencord/Equicord/BetterDiscord: drop it in the themes folder) |
 | `zapfast/` | Night and day themes for ZapFast (copy to `%APPDATA%\paolino\zapfast\config\themes\`) |
 
 ## The bar
