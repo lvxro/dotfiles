@@ -1,0 +1,32 @@
+{
+  "name": "red-balloon",
+  "displayName": "Red Balloon",
+  "description": "Night teal, peach and the red of the balloons.",
+  "version": "1.0.0",
+  "publisher": "lvxro",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lvxro/dotfiles"
+  },
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Red Balloon",
+        "uiTheme": "vs-dark",
+        "path": "./themes/red-balloon.json"
+      },
+      {
+        "label": "Red Balloon Day",
+        "uiTheme": "vs",
+        "path": "./themes/red-balloon-day.json"
+      }
+    ]
+  }
+}

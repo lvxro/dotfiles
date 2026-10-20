@@ -1,0 +1,103 @@
+{
+  "manifest_version": 3,
+  "version": "1.1",
+  "name": "Red Balloon",
+  "description": "Night teal, peach and the red of the balloons.",
+  "theme": {
+    "images": {
+      "theme_ntp_background": "images/ntp.png"
+    },
+    "colors": {
+      "frame": [
+        6,
+        26,
+        36
+      ],
+      "frame_inactive": [
+        8,
+        32,
+        43
+      ],
+      "frame_incognito": [
+        42,
+        10,
+        16
+      ],
+      "frame_incognito_inactive": [
+        30,
+        7,
+        11
+      ],
+      "toolbar": [
+        18,
+        62,
+        77
+      ],
+      "tab_text": [
+        244,
+        230,
+        218
+      ],
+      "tab_background_text": [
+        169,
+        203,
+        193
+      ],
+      "tab_background_text_inactive": [
+        110,
+        142,
+        137
+      ],
+      "tab_background_text_incognito": [
+        242,
+        195,
+        198
+      ],
+      "bookmark_text": [
+        244,
+        230,
+        218
+      ],
+      "toolbar_text": [
+        244,
+        230,
+        218
+      ],
+      "toolbar_button_icon": [
+        252,
+        204,
+        168
+      ],
+      "omnibox_background": [
+        8,
+        32,
+        43
+      ],
+      "omnibox_text": [
+        244,
+        230,
+        218
+      ],
+      "ntp_background": [6, 24, 34],
+      "ntp_text": [
+        244,
+        230,
+        218
+      ],
+      "ntp_link": [
+        252,
+        204,
+        168
+      ],
+      "ntp_header": [
+        252,
+        204,
+        168
+      ]
+    },
+    "properties": {
+      "ntp_background_alignment": "center",
+      "ntp_background_repeat": "no-repeat"
+    }
+  }
+}

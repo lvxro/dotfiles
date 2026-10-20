@@ -16,6 +16,8 @@ My Windows 11 rice: a [YASB](https://github.com/amnweb/yasb) bar, [Windhawk](htt
 | `powershell/` | Prompt colors and the profile snippet that runs fastfetch |
 | `fastfetch/` | fastfetch config and the sixel logo |
 | `windows/accent.reg` | Balloon-red accent color for Windows |
+| `helium/` | Chromium theme (works in Helium, Chrome, Brave…) with a gradient new-tab page |
+| `vscode/` | Red Balloon color theme for VS Code (source and `.vsix`) |
 
 ## The bar
 
@@ -52,9 +54,16 @@ Install [Windhawk](https://windhawk.net) and these mods from its Explore tab:
 | Translucent Windows | Teal blur behind Explorer, context menus and classic windows |
 | Windows 11 Notification Center Styler | TintedGlass in teal, peach accent, 12px corners |
 | Better file sizes in Explorer details | Folder sizes via [Everything](https://www.voidtools.com/) (enable *Index folder size* in its options) |
+| Customize Windows notifications placement | Toasts appear top-right, just below the bar |
 | Taskbar auto-hide fine tuning | Mode *Never*: the Windows taskbar never shows, YASB replaces it. Needs taskbar auto-hide on. `` Alt+` `` toggles it back if you need it |
 
 For each mod, open **Details → Settings → Advanced** and paste the matching file from `windhawk/`.
+
+If you use the portable Windhawk and later move its folder, the notification mods stop working: `ShellExperienceHost.exe` runs sandboxed and loses read access to the mods. Give it back with:
+
+```powershell
+icacls "<Windhawk folder>\AppData\Engine" /grant "*S-1-15-2-1:(OI)(CI)(RX)" "*S-1-15-2-2:(OI)(CI)(RX)"
+```
 
 ### Terminal, PowerShell and fastfetch
 
@@ -62,6 +71,11 @@ For each mod, open **Details → Settings → Advanced** and paste the matching 
 2. Copy `fastfetch/` to `%USERPROFILE%\.config\fastfetch\` and `powershell/prompt.ps1` to `%USERPROFILE%\.config\red-balloon\prompt.ps1`.
 3. Append `powershell/profile.ps1` to your `$PROFILE`.
 4. In Windows Terminal, open **Settings → Open JSON file** and merge in `terminal/red-balloon.json`. The logo is drawn with sixel, which needs Windows Terminal 1.22 or newer.
+
+### Browser and editor
+
+- **Browser:** open `chrome://extensions`, turn on Developer mode, click **Load unpacked** and pick the `helium/` folder.
+- **VS Code:** run `code --install-extension vscode/red-balloon.vsix`, then pick **Red Balloon** in *Preferences: Color Theme*.
 
 ### Accent color
 
