@@ -2746,3 +2746,8 @@ which is 16 pixels same as the other sections. */
 .clock-popup.calendar .month-label {
     margin-top: 14px;
 }
+/* hover inside islands must not add a border: the extra 2px shifted the whole right side */
+.music-island .widget:hover,
+.system-island .widget:hover {
+    border: none;
+}
