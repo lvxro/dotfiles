@@ -2223,7 +2223,7 @@ which is 16 pixels same as the other sections. */
 }
 .music-island .audio-visualizer-widget {
     margin: 0px;
-    padding: 0px 12px 0px 2px;
+    padding: 0px 10px;   /* symmetric, so it stays centered when it is alone */
     border: none;
 }
 .music-island .audio-visualizer-widget:hover {

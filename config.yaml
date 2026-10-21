@@ -670,7 +670,7 @@ widgets:
       channels: stereo
       mono_option: average
       reverse: false
-      mirror: false
+      mirror: true       # bars grow from the middle, so silence is a centered line
       bars:
         count: 12
         width: 1
