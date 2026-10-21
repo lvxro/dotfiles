@@ -37,7 +37,7 @@ bars:
       left:
       - home
       - desktops          # virtual desktops as dots; the active one is a longer pill
-      - apps-island       # open apps + the focused window's name
+      - apps-island       # open apps (icons only)
       center:
       - clock-island      # weekday in kanji + clock
       right:
@@ -51,7 +51,7 @@ widgets:
     options:
       class_name: "apps-island"
       hide_empty: true      # no open apps: the island disappears
-      widgets: ["taskbar", "active_window"]
+      widgets: ["taskbar"]
   clock-island:
     type: "yasb.grouper.GrouperWidget"
     options:
