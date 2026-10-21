@@ -2694,3 +2694,45 @@ which is 16 pixels same as the other sections. */
     background: rgba(29, 88, 102, 0.9);
     color: #FCCCA8;
 }
+
+/* ---------- Calendar, compact version ----------
+   the grid already shows the day, so the left column keeps only month, year and week;
+   no alarm/timer buttons; the holidays column gets the freed width */
+.clock-popup.calendar .day-label,
+.clock-popup.calendar .date-label {
+    max-height: 0px;
+    min-height: 0px;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    background: transparent;
+}
+.clock-popup.calendar .month-label,
+.clock-popup.calendar .year-label {
+    min-width: 120px;
+    max-width: 120px;
+}
+.clock-popup.calendar .month-label {
+    font-size: 20px;
+    margin-top: 0px;
+}
+.clock-popup.calendar .week-label {
+    margin: 10px 14px 0px 14px;
+}
+.clock-popup.calendar QPushButton {
+    max-height: 0px;
+    min-height: 0px;
+    padding: 0px;
+    margin: 0px;
+    border: none;
+}
+.clock-popup.calendar .extended-container {
+    min-width: 270px;
+}
+/* today: a filled peach circle */
+.clock-popup.calendar .calendar-table::item:selected {
+    background-color: #FCCCA8;
+    color: #061322;
+    border-radius: 13px;
+    font-weight: 700;
+}
