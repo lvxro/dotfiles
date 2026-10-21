@@ -136,7 +136,7 @@ widgets:
         holiday_color: "#FF6B6B"
         show_week_numbers: true
       callbacks:
-        on_left: toggle_calendar
+        on_left: do_nothing       # clock only, no calendar popup
         on_right: toggle_label
   volume:
     type: yasb.volume.VolumeWidget
