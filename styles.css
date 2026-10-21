@@ -553,6 +553,64 @@
     font-weight: 900;
     margin-top: -20px;
 }
+
+/* ---------- Calendar as a station board (pairs with the mixer) ----------
+   same night teal as the mixer, a balloon-red line stripe on top, the weekday as a
+   line-color tag, the day number in a framed platform plate, the week as a station code */
+.clock-popup.calendar {
+    background-color: rgba(6, 26, 36, 0.92);
+    border: 1px solid #1F4B58;
+    border-top: 5px solid #FF6B6B;
+}
+.clock-popup.calendar .day-label {
+    background-color: #C4161C;
+    color: #F4E6DA;
+    border-radius: 6px;
+    padding: 3px 0px;
+    font-size: 14px;
+}
+.clock-popup.calendar .month-label {
+    color: #FCCCA8;
+    font-weight: 700;
+    margin-top: 8px;
+}
+.clock-popup.calendar .year-label {
+    color: #5E8285;
+}
+.clock-popup.calendar .date-label {
+    color: #FCCCA8;
+    border: 2px solid #FCCCA8;
+    border-radius: 16px;
+    background-color: rgba(252, 204, 168, 0.06);
+    margin: 6px 20px 0px 20px;
+    padding: 0px 0px 18px 0px;   /* the font sits low; extra bottom padding centers the digits in the plate */
+}
+.clock-popup.calendar .week-label {
+    color: #A9CBC1;
+    border: 1px solid #1F4B58;
+    border-radius: 10px;
+    padding: 2px 0px;
+    margin: 8px 40px 0px 40px;
+    font-family: "JetBrainsMono Nerd Font", var(--system-font);
+    font-size: 11px;
+}
+.clock-popup.calendar .calendar-table,
+.clock-popup.calendar .calendar-table::item {
+    color: #F4E6DA;
+}
+.clock-popup.calendar .calendar-table::item:selected {
+    color: #061322;
+    background-color: #FCCCA8;
+    border-radius: 6px;
+}
+.clock-popup.calendar QHeaderView::section {
+    background-color: transparent;
+    color: #A9CBC1;
+    border: none;
+    border-bottom: 1px solid #1F4B58;
+    font-weight: 700;
+    padding-bottom: 4px;
+}
 .clock-popup.timer .clock-popup-container,
 .clock-popup.alarm .clock-popup-container {
     padding: 16px;
@@ -866,6 +924,73 @@
 }
 .audio-menu .apps-container .app-volume .app-icon-container:hover {
     background-color: var(--hover);
+}
+
+/* ---------- Mixer as a station board ----------
+   a peach "line color" stripe on top, outputs listed like platforms, the active
+   one marked with a balloon-red bar, sliders like a route line */
+.audio-menu {
+    background-color: rgba(6, 26, 36, 0.92);
+    border: 1px solid #1F4B58;
+    border-top: 5px solid #FCCCA8;
+    min-width: 330px;
+}
+.audio-menu .audio-container .device {
+    color: #A9CBC1;
+    border-left: 3px solid transparent;
+    border-radius: 4px;
+    padding: 7px 10px;
+    text-align: left;
+}
+.audio-menu .audio-container .device.selected,
+.audio-menu .audio-container .device.selected:hover {
+    background-color: rgba(29, 88, 102, 0.55);
+    color: #FCCCA8;
+    font-weight: 700;
+    border-left: 3px solid #FF6B6B;
+}
+.audio-menu .audio-container .device:hover {
+    background-color: rgba(29, 88, 102, 0.35);
+    color: #F4E6DA;
+}
+.audio-menu .system-volume-container .volume-slider::groove,
+.audio-menu .apps-container .app-volume .app-slider::groove {
+    height: 4px;
+    background: #1F4B58;
+    border-radius: 2px;
+}
+.audio-menu .system-volume-container .volume-slider::sub-page,
+.audio-menu .apps-container .app-volume .app-slider::sub-page {
+    background: #FF6B6B;
+    border-radius: 2px;
+}
+.audio-menu .system-volume-container .volume-slider::handle,
+.audio-menu .apps-container .app-volume .app-slider::handle {
+    background: #FCCCA8;
+    border: 2px solid #061A24;
+    width: 12px;
+    height: 12px;
+    margin: -6px 0;
+    border-radius: 7px;
+}
+/* the expand arrow is a Font Awesome glyph: without the icon font it shows as "σ" */
+.audio-menu .toggle-apps {
+    font-family: var(--icons-font);
+    font-size: 12px;
+    color: #A9CBC1;
+}
+.audio-menu .toggle-apps:hover {
+    color: #FCCCA8;
+}
+.audio-menu .apps-container {
+    border-top: 1px solid #1F4B58;
+    border-radius: 0;
+    margin-top: 8px;
+}
+.audio-menu .apps-container .app-volume .app-label {
+    color: #A9CBC1;
+    font-family: "JetBrainsMono Nerd Font", var(--system-font);
+    font-size: 11px;
 }
 
 /* Taskbar — open apps as icons in one pill; the focused app gets a peach tint */
