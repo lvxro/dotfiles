@@ -107,10 +107,12 @@ if (Step 'shell') {
 # ---------------------------------------------------------------- btop
 if (Step 'btop') {
     Say 'btop' 'Cyan'
-    $btop = Get-Command btop4win, btop -ErrorAction SilentlyContinue | Select-Object -First 1
+    # winget puts a "btop" link in its Links folder; the theme must go next to the real exe
+    $btop = Get-ChildItem "$env:LOCALAPPDATA\Microsoft\WinGet\Packages" -Recurse -Filter btop4win.exe -ErrorAction SilentlyContinue | Select-Object -First 1
+    if (-not $btop) { $btop = Get-Command btop4win -ErrorAction SilentlyContinue | ForEach-Object { Get-Item $_.Source } }
     if (-not $btop) { Skip 'btop4win not installed (winget install aristocratos.btop4win)' }
     else {
-        $dir = Split-Path $btop.Source
+        $dir = $btop.DirectoryName
         Put 'btop\red-balloon.theme' "$dir\themes\red-balloon.theme"
         $conf = Join-Path $dir 'btop.conf'
         if ($DryRun) { Say "  would set color_theme in $conf" 'DarkCyan' }
