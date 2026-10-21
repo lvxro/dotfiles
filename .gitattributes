@@ -1,0 +1,2 @@
+# Flow Launcher reads the theme header line by line and needs Windows line endings
+*.xaml text eol=crlf
