@@ -2736,3 +2736,13 @@ which is 16 pixels same as the other sections. */
     border-radius: 13px;
     font-weight: 700;
 }
+/* left column: week chip as wide as month/year so all three share one center,
+   and a bit of top margin so the block sits at the grid's mid-height */
+.clock-popup.calendar .week-label {
+    min-width: 120px;
+    max-width: 120px;
+    margin: 10px 0px 0px 0px;
+}
+.clock-popup.calendar .month-label {
+    margin-top: 14px;
+}
