@@ -2436,3 +2436,54 @@ which is 16 pixels same as the other sections. */
 .yasb-bar.adaptive .active-window-widget:hover {
     background-color: transparent;
 }
+
+/* =====================================================================
+   RAIL — the bar is one translucent strip across the top of the screen and
+   the pills sit inside it, smaller and flatter. Delete this block to go back
+   to floating pills (and restore the 8px top/bottom padding in config.yaml).
+   ===================================================================== */
+.yasb-bar {
+    background-color: rgba(6, 26, 36, 0.72);
+    border-bottom: 1px solid rgba(169, 203, 193, 0.16);
+    padding: 0px 10px;
+}
+.widget {
+    margin: 6px 3px;
+    background-color: rgba(15, 51, 64, 0.55);
+    border: 1px solid rgba(169, 203, 193, 0.10);
+}
+.widget:hover {
+    background-color: rgba(29, 88, 102, 0.55);
+    border: 1px solid rgba(252, 204, 168, 0.45);
+}
+.system-island {
+    margin: 6px 3px;
+    background-color: rgba(15, 51, 64, 0.55);
+    border: 1px solid rgba(169, 203, 193, 0.10);
+}
+/* no border on the music island: when empty it must measure 0px (YASB grouper bug) */
+.music-island {
+    margin: 6px 3px;
+    background-color: rgba(15, 51, 64, 0.55);
+}
+.music-island .widget,
+.system-island .widget {
+    background-color: transparent;
+    border: none;
+    margin: 0px;
+}
+/* keep the accents: same specificity as .widget, so they must come after it */
+.home-widget {
+    background-color: #9E1217;
+    border: 1px solid #9E1217;
+}
+.home-widget:hover {
+    background-color: #E5262D;
+    border: 1px solid var(--accent);
+}
+.clock-widget,
+.clock-widget:hover {
+    background-color: transparent;
+    border: none;
+    padding: 0px;
+}

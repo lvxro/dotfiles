@@ -27,11 +27,11 @@ bars:
       hide_on_fullscreen: true   # se esconde en juegos / videos en pantalla completa
     dimensions:
       width: 100%
-      height: 36
+      height: 40        # full-width rail; the pills sit inside it (see "Rail" in styles.css)
     padding:
-      top: 8
+      top: 0
       left: 0
-      bottom: 8         # same air below the pills as above, so maximized windows do not touch them
+      bottom: 0
       right: 0
     widgets:
       left:
