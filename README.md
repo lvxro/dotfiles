@@ -22,6 +22,10 @@ My Windows 11 rice: a [YASB](https://github.com/amnweb/yasb) bar, [Windhawk](htt
 | `discord/` | [midnight](https://github.com/refact0r/midnight-discord) by refact0r, recolored to the palette (Vencord/Equicord/BetterDiscord: drop it in the themes folder) |
 | `steam/quick.css` | Palette for [SpaceTheme](https://github.com/SpaceTheme/Steam) on [Millennium](https://steambrew.app); install the theme, then copy this to `Steam\millennium\config\` |
 | `btop/red-balloon.theme` | btop4win theme |
+| `starship/starship.toml` | [Starship](https://starship.rs) prompt in the palette |
+| `flow-launcher/Red Balloon.xaml` | [Flow Launcher](https://www.flowlauncher.com) theme (Alt+Space) |
+| `tacky-borders/config.yaml` | [Tacky Borders](https://github.com/lukeyou05/tacky-borders): peach-to-red gradient on the active window |
+| `helium-newtab/` | Dashboard new tab: the sharp balcony wallpaper lined up with the desktop, with one frosted glass panel holding the clock, weather, search, shortcut pills and a 家 folder menu. Your links, folders and city go in `config.js` (copied from `config.example.js`, not tracked) |
 | `install.ps1` | Copies everything above into place |
 | `zapfast/` | Night and day themes for ZapFast (copy to `%APPDATA%\paolino\zapfast\config\themes\`) |
 
@@ -32,7 +36,7 @@ My Windows 11 rice: a [YASB](https://github.com/amnweb/yasb) bar, [Windhawk](htt
 - **Right:**
   - Music island: controls, title and artist, and an audio visualizer. It hides itself when nothing is playing.
   - System island: weather, system tray, volume, notifications and control center.
-- **Alt + Space:** app launcher. The search button is hidden, but the shortcut still works.
+- **Alt + Space:** Flow Launcher.
 
 ## Quick install
 
@@ -45,7 +49,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1 -DryRun   # preview
 powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-It skips anything that is not installed and backs up existing files as `.bak`. `-Only terminal,discord` runs just those steps (`yasb`, `wallpaper`, `accent`, `terminal`, `shell`, `btop`, `windhawk`, `discord`, `steam`, `browser`, `vscode`, `zapfast`, `nilesoft`). The manual steps below explain what each one does.
+It skips anything that is not installed and backs up existing files as `.bak`. `-Only terminal,discord` runs just those steps (`yasb`, `wallpaper`, `accent`, `terminal`, `shell`, `btop`, `windhawk`, `discord`, `steam`, `starship`, `flow`, `borders`, `browser`, `vscode`, `zapfast`, `nilesoft`). The manual steps below explain what each one does.
 
 ## Installation
 

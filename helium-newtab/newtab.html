@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>New Tab</title>
+<style>
+  :root {
+    --glass: rgba(8, 32, 43, 0.55);
+    --glass-hover: rgba(29, 88, 102, 0.6);
+    --border: rgba(127, 163, 154, 0.28);
+    --text: #F4E6DA;
+    --sage: #A9CBC1;
+    --peach: #FCCCA8;
+    --balloon: #FF6B6B;
+    --red: #9E1217;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; overflow: hidden; }
+  body {
+    background: #061A24; color: var(--text);
+    font-family: "Zen Kaku Gothic New", "Yu Gothic UI", "Segoe UI", sans-serif;
+  }
+  /* bg.jpg is the full-screen wallpaper as the desktop shows it, sharp at the top and
+     blurred lower; newtab.js moves it by the window position so it lines up with the desktop */
+  .bg { position: fixed; inset: 0; background: #061A24 url("bg.jpg") no-repeat; }
+  .glass {
+    background: var(--glass); border: 1px solid var(--border);
+    backdrop-filter: blur(18px); border-radius: 18px;
+  }
+
+  /* 家 button + folder menu, like the bar */
+  .home { position: fixed; top: 22px; left: 22px; z-index: 2; }
+  .home button {
+    width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--red);
+    background: var(--red); color: var(--text); font: inherit; font-weight: 700; font-size: 16px;
+    cursor: pointer; transition: background .15s, border-color .15s;
+  }
+  .home button:hover { background: #E5262D; border-color: var(--peach); }
+  .menu { display: none; margin-top: 10px; padding: 6px; min-width: 190px; }
+  .menu.open { display: block; }
+  .menu a { display: block; padding: 9px 14px; border-radius: 10px; color: var(--text); text-decoration: none; font-size: 14px; }
+  .menu a:hover { background: var(--glass-hover); color: var(--peach); }
+
+  main {
+    position: relative; z-index: 1; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  /* one frosted teal panel holding everything; the wallpaper around it stays sharp */
+  .panel {
+    display: flex; flex-direction: column; align-items: center; gap: 22px;
+    padding: 44px 56px 40px; border-radius: 28px;
+    background: rgba(8, 32, 43, 0.45);
+    border: 1px solid rgba(169, 203, 193, 0.22);
+    backdrop-filter: blur(22px) saturate(1.15);
+    box-shadow: 0 20px 60px rgba(2, 10, 16, 0.45);
+  }
+  /* inside the panel the pieces are lighter glass, not a second frosted layer */
+  .panel .glass, .panel input, .panel .links a { backdrop-filter: none; background: rgba(6, 26, 36, 0.35); }
+  .clock { font-size: 104px; font-weight: 700; letter-spacing: 2px; line-height: 1; text-shadow: 0 4px 24px rgba(0,0,0,.35); }
+  .clock .sep { color: var(--balloon); }
+  .date { color: var(--peach); font-size: 18px; margin-top: -10px; }
+
+  .weather { display: flex; align-items: center; gap: 14px; padding: 10px 20px; font-size: 15px; }
+  .weather .temp { font-size: 26px; font-weight: 700; }
+  .weather .meta { color: var(--sage); }
+  .weather .range { color: var(--peach); }
+
+  form { width: min(580px, 90vw); }
+  input {
+    width: 100%; padding: 15px 24px; font: inherit; font-size: 17px; color: var(--text);
+    background: var(--glass); border: 1px solid var(--border); border-radius: 999px; outline: none;
+    backdrop-filter: blur(18px);
+  }
+  input::placeholder { color: var(--sage); opacity: .75; }
+  input:focus { border-color: var(--peach); }
+
+  .links { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+  .links a {
+    display: flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px;
+    background: var(--glass); border: 1px solid var(--border); backdrop-filter: blur(18px);
+    color: var(--text); text-decoration: none; font-size: 14px; transition: background .15s, border-color .15s;
+  }
+  .links a:hover { background: var(--glass-hover); border-color: var(--peach); color: var(--peach); }
+  .links img { width: 16px; height: 16px; }
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+
+  <div class="home">
+    <button id="homeBtn" title="Carpetas">家</button>
+    <div class="menu glass" id="menu"></div>
+  </div>
+
+  <main>
+    <section class="panel">
+      <div class="clock" id="clock">00<span class="sep">:</span>00</div>
+      <div class="date" id="date"></div>
+      <div class="weather glass" id="weather" hidden></div>
+      <form action="https://www.google.com/search">
+        <input name="q" placeholder="Buscar…" autofocus autocomplete="off">
+      </form>
+      <nav class="links" id="links"></nav>
+    </section>
+  </main>
+
+<script src="config.js"></script>
+<script src="newtab.js"></script>
+</body>
+</html>

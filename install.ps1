@@ -18,6 +18,8 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+# "-Only a,b" arrives as one string when run with powershell -File
+$Only = @($Only | ForEach-Object { $_ -split ',' } | ForEach-Object { $_.Trim() } | Where-Object { $_ })
 $Repo = $PSScriptRoot
 $Home_ = $env:USERPROFILE
 
@@ -173,12 +175,41 @@ if (Step 'steam') {
     }
 }
 
+# ---------------------------------------------------------------- Starship, Flow Launcher, Tacky Borders
+if (Step 'starship') {
+    Say 'Starship' 'Cyan'
+    Put 'starship\starship.toml' "$Home_\.config\starship.toml"
+}
+if (Step 'flow') {
+    Say 'Flow Launcher' 'Cyan'
+    $fl = Join-Path $env:APPDATA 'FlowLauncher'
+    if (-not (Test-Path $fl)) { Skip 'Flow Launcher not installed (winget install Flow-Launcher.Flow-Launcher)' }
+    else {
+        Put 'flow-launcher\Red Balloon.xaml' "$fl\Themes\Red Balloon.xaml"
+        Say '  pick Red Balloon in Flow settings > Appearance (Alt+Space opens it)' 'Yellow'
+    }
+}
+if (Step 'borders') {
+    Say 'Tacky Borders' 'Cyan'
+    Put 'tacky-borders\config.yaml' "$Home_\.config\tacky-borders\config.yaml"
+    if (-not (Test-Path "$env:LOCALAPPDATA\Programs\tacky-borders\tacky-borders.exe")) {
+        Say '  note: download tacky-borders from github.com/lukeyou05/tacky-borders/releases' 'Yellow'
+    }
+}
+
 # ---------------------------------------------------------------- Browser, VS Code, ZapFast
 if (Step 'browser') {
     Say 'Browser theme' 'Cyan'
     Put 'helium\manifest.json'   "$Home_\.config\helium-theme\manifest.json"
     Put 'helium\images\ntp.png'  "$Home_\.config\helium-theme\images\ntp.png"
-    Say '  load it from chrome://extensions > Load unpacked > %USERPROFILE%\.config\helium-theme' 'Yellow'
+    Put 'helium\images\frame.png' "$Home_\.config\helium-theme\images\frame.png"
+    $nt = "$Home_\.config\helium-newtab"
+    foreach ($n in 'manifest.json', 'newtab.html', 'newtab.js', 'config.example.js', 'bg.jpg') { Put "helium-newtab\$n" "$nt\$n" }
+    if (-not (Test-Path "$nt\config.js")) {
+        if ($DryRun) { Say '  would create config.js from config.example.js' 'DarkCyan' }
+        else { (Get-Content "$nt\config.example.js" -Raw) -replace 'C:\\\\Users\\\\YOU', ("C:\\Users\\" + $env:USERNAME) | Set-Content "$nt\config.js"; Say '  created config.js: set your weather city there' 'Yellow' }
+    }
+    Say '  load both from chrome://extensions > Load unpacked: .config\helium-theme and .config\helium-newtab' 'Yellow'
 }
 if (Step 'vscode') {
     Say 'VS Code' 'Cyan'
