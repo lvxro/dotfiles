@@ -129,9 +129,11 @@ widgets:
         round_corners: true
         alignment: center
         direction: down
-        extended: false
+        extended: true          # adds the upcoming holidays list
         show_years: true
-        show_holidays: false
+        show_holidays: true
+        country_code: "AR"
+        holiday_color: "#FF6B6B"
         show_week_numbers: true
       callbacks:
         on_left: toggle_calendar
