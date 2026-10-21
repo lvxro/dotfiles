@@ -1,0 +1,70 @@
+/* Night Balcony for the Material theme (kuska1/Material-Theme).
+   Loaded last through "Use Modifications File", so it overrides whichever "Color" preset is picked.
+   Material 3 roles mapped to the rice palette: ribbon blue = primary, eye violet = tertiary,
+   moonlight haze = secondary, night navy surfaces. :root:root wins over the preset's :root. */
+:root:root {
+    --theme-color: "Night Balcony";
+    --hue-rotate: 360deg;
+
+    --md-sys-color-primary: rgb(111 164 255);              /* #6FA4FF ribbon */
+    --md-sys-color-surface-tint: rgb(111 164 255);
+    --md-sys-color-on-primary: rgb(7 10 20);               /* #070A14 */
+    --md-sys-color-primary-container: rgb(35 48 102);      /* #233066 */
+    --md-sys-color-on-primary-container: rgb(200 217 255);
+    --md-sys-color-secondary: rgb(163 180 224);            /* #A3B4E0 haze */
+    --md-sys-color-on-secondary: rgb(20 28 48);
+    --md-sys-color-secondary-container: rgb(38 48 79);     /* #26304F */
+    --md-sys-color-on-secondary-container: rgb(220 228 248);
+    --md-sys-color-tertiary: rgb(155 130 255);             /* #9B82FF eyes */
+    --md-sys-color-on-tertiary: rgb(18 11 46);
+    --md-sys-color-tertiary-container: rgb(58 46 122);
+    --md-sys-color-on-tertiary-container: rgb(226 218 255);
+    --md-sys-color-error: rgb(240 122 143);                /* #F07A8F rose */
+    --md-sys-color-on-error: rgb(58 15 26);
+    --md-sys-color-error-container: rgb(107 34 54);
+    --md-sys-color-on-error-container: rgb(255 217 224);
+
+    --md-sys-color-background: rgb(10 15 28);              /* #0A0F1C */
+    --md-sys-color-on-background: rgb(223 230 251);        /* #DFE6FB */
+    --md-sys-color-surface: rgb(10 15 28);
+    --md-sys-color-on-surface: rgb(223 230 251);
+    --md-sys-color-surface-variant: rgb(38 48 79);
+    --md-sys-color-on-surface-variant: rgb(163 180 224);
+    --md-sys-color-outline: rgb(90 106 153);               /* #5A6A99 */
+    --md-sys-color-outline-variant: rgb(38 48 79);
+    --md-sys-color-shadow: rgb(0 0 0);
+    --md-sys-color-scrim: rgb(0 0 0);
+    --md-sys-color-inverse-surface: rgb(223 230 251);
+    --md-sys-color-inverse-on-surface: rgb(20 28 48);
+    --md-sys-color-inverse-primary: rgb(53 99 214);
+
+    --md-sys-color-primary-fixed: rgb(214 227 255);
+    --md-sys-color-on-primary-fixed: rgb(0 27 62);
+    --md-sys-color-primary-fixed-dim: rgb(157 194 255);
+    --md-sys-color-on-primary-fixed-variant: rgb(35 48 102);
+    --md-sys-color-secondary-fixed: rgb(220 228 248);
+    --md-sys-color-on-secondary-fixed: rgb(20 28 48);
+    --md-sys-color-secondary-fixed-dim: rgb(163 180 224);
+    --md-sys-color-on-secondary-fixed-variant: rgb(38 48 79);
+    --md-sys-color-tertiary-fixed: rgb(226 218 255);
+    --md-sys-color-on-tertiary-fixed: rgb(18 11 46);
+    --md-sys-color-tertiary-fixed-dim: rgb(185 166 255);
+    --md-sys-color-on-tertiary-fixed-variant: rgb(58 46 122);
+
+    /* surfaces climb in the same steps as the bar and the new tab tiles */
+    --md-sys-color-surface-dim: rgb(10 15 28);
+    --md-sys-color-surface-bright: rgb(42 55 96);
+    --md-sys-color-surface-container-lowest: rgb(7 10 20);
+    --md-sys-color-surface-container-low: rgb(14 20 36);   /* #0E1424 */
+    --md-sys-color-surface-container: rgb(17 24 41);       /* #111829, the new tab tiles */
+    --md-sys-color-surface-container-high: rgb(26 35 56);  /* #1A2338 */
+    --md-sys-color-surface-container-highest: rgb(35 45 75);
+
+    --custom-accent-color: #6FA4FF;
+}
+
+/* text selection in the ribbon blue, like the terminal */
+::selection {
+    background: rgb(111 164 255 / 0.35);
+    color: rgb(223 230 251);
+}

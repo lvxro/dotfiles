@@ -1,0 +1,7 @@
+/* Night Balcony: the bar's rounded font, with its own kanji. Installed locally, so no web font load. */
+* {
+    font-family: "Rounded Mplus 1c", "M PLUS Rounded 1c", "Zen Kaku Gothic New", "Segoe UI", sans-serif !important;
+}
+code, pre, kbd, .bb_code {
+    font-family: "M+1Code Nerd Font", "JetBrainsMono Nerd Font", Consolas, monospace !important;
+}

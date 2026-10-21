@@ -177,13 +177,17 @@ if (Step 'steam') {
     $mil = "${env:ProgramFiles(x86)}\Steam\millennium"
     if (-not (Test-Path $mil)) { Skip 'Millennium not installed' }
     else {
-        if (-not (Test-Path "$mil\themes\SpaceTheme")) {
-            if ($DryRun) { Say '  would clone SpaceTheme' 'DarkCyan' }
-            elseif (Get-Command git -ErrorAction SilentlyContinue) { git clone --depth 1 https://github.com/SpaceTheme/Steam "$mil\themes\SpaceTheme" 2>$null | Out-Null; Say '  cloned SpaceTheme' 'Green' }
-            else { Say '  install SpaceTheme from steambrew.app/themes' 'Yellow' }
+        $mt = "$mil\themes\Material-Theme"
+        if (-not (Test-Path $mt)) {
+            if ($DryRun) { Say '  would clone the Material theme' 'DarkCyan' }
+            elseif (Get-Command git -ErrorAction SilentlyContinue) { cmd /c "git clone -q --depth 1 https://github.com/kuska1/Material-Theme `"$mt`" >nul 2>&1"; Say '  cloned the Material theme' 'Green' }
+            else { Say '  install Material from steambrew.app/theme/ipYjqODds05KMcvh7QJn' 'Yellow' }
         }
+        # palette and font live outside the theme's own files, so theme updates keep them
+        Put 'steam\material\mods.css'       "$mt\mods.css"
+        Put 'steam\material\customFont.css' "$mt\customFont.css"
         Put 'steam\quick.css' "$mil\config\quick.css"
-        Say '  pick SpaceTheme in Steam > Millennium > Themes' 'Yellow'
+        Say '  in Steam > Millennium > Themes pick Material, then set Color: Blue, Font: Custom and Use Modifications File: yes' 'Yellow'
     }
 }
 
@@ -237,6 +241,15 @@ if (Step 'zapfast') {
     $z = Join-Path $env:APPDATA 'paolino\zapfast\config\themes'
     if (Test-Path $z) { Put 'zapfast\night-balcony.json' "$z\night-balcony.json"; Put 'zapfast\night-balcony-day.json' "$z\night-balcony-day.json" }
     else { Skip 'ZapFast not installed' }
+}
+if (Step 'spotifast') {
+    Say 'Spotifast' 'Cyan'
+    $sf = Join-Path $env:APPDATA 'paolino\spotifast\config\themes'
+    if (Test-Path $sf) {
+        Put 'spotifast\night-balcony.json' "$sf\night-balcony.json"; Put 'spotifast\night-balcony-day.json' "$sf\night-balcony-day.json"
+        Say '  pick Night Balcony in Spotifast > Settings > Theme' 'Yellow'
+    }
+    else { Skip 'Spotifast not installed' }
 }
 
 # ---------------------------------------------------------------- Nilesoft Shell (needs admin)

@@ -20,7 +20,7 @@ My Windows 11 rice: a [YASB](https://github.com/amnweb/yasb) bar, [Windhawk](htt
 | `vscode/` | Night Balcony color theme for VS Code (source and `.vsix`) |
 | `nilesoft/theme.nss` | Right-click menu theme for [Nilesoft Shell](https://nilesoft.org) (copy to `C:\Program Files\Nilesoft Shell\imports\`, needs admin) |
 | `discord/` | [midnight](https://github.com/refact0r/midnight-discord) by refact0r, recolored to the palette (Vencord/Equicord/BetterDiscord: drop it in the themes folder) |
-| `steam/quick.css` | Palette for [SpaceTheme](https://github.com/SpaceTheme/Steam) on [Millennium](https://steambrew.app); install the theme, then copy this to `Steam\millennium\config\` |
+| `steam/material/` | Palette (`mods.css`) and fonts (`customFont.css`) for the [Material](https://steambrew.app/theme/ipYjqODds05KMcvh7QJn) theme by kuska1 on [Millennium](https://steambrew.app). In Millennium > Themes pick Material, then set *Color: Blue*, *Font: Custom* and *Use Modifications File: yes*; under Privacy set the account name and balance options to *Show* to drop the blur |
 | `btop/night-balcony.theme` | btop4win theme |
 | `starship/starship.toml` | [Starship](https://starship.rs) prompt in the palette |
 | `flow-launcher/Night Balcony.xaml` | [Flow Launcher](https://www.flowlauncher.com) theme (Alt+Space) |
@@ -28,6 +28,7 @@ My Windows 11 rice: a [YASB](https://github.com/amnweb/yasb) bar, [Windhawk](htt
 | `helium-newtab/` | Bento new tab on solid night navy, apart from the wallpaper: big clock with the day's progress, a prompt-style search with `!yt` `!gh` `!al` `!w` bangs (`/` focuses it), weather, the month, the fastfetch girl in line art, shortcuts and what airs today on AniList (or your own watching list with `anilistUser`). Your name, links and city go in `config.js` (copied from `config.example.js`, not tracked) |
 | `install.ps1` | Copies everything above into place |
 | `zapfast/` | Night and day themes for ZapFast (copy to `%APPDATA%\paolino\zapfast\config\themes\`) |
+| `spotifast/` | Night and day themes for Spotifast (copy to `%APPDATA%\paolino\spotifast\config\themes\`, then pick it in Settings > Theme) |
 
 ## The bar
 
@@ -49,7 +50,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1 -DryRun   # preview
 powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
-It skips anything that is not installed and backs up existing files as `.bak`. `-Only terminal,discord` runs just those steps (`yasb`, `wallpaper`, `accent`, `terminal`, `shell`, `btop`, `windhawk`, `discord`, `steam`, `starship`, `flow`, `borders`, `browser`, `vscode`, `zapfast`, `nilesoft`). The manual steps below explain what each one does.
+It skips anything that is not installed and backs up existing files as `.bak`. `-Only terminal,discord` runs just those steps (`yasb`, `wallpaper`, `accent`, `terminal`, `shell`, `btop`, `windhawk`, `discord`, `steam`, `starship`, `flow`, `borders`, `browser`, `vscode`, `zapfast`, `spotifast`, `nilesoft`). The manual steps below explain what each one does.
 
 ## Installation
 
