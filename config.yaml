@@ -50,6 +50,7 @@ widgets:
     type: "yasb.grouper.GrouperWidget"
     options:
       class_name: "apps-island"
+      hide_empty: true      # no open apps: the island disappears
       widgets: ["taskbar", "active_window"]
   clock-island:
     type: "yasb.grouper.GrouperWidget"

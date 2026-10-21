@@ -2523,12 +2523,12 @@ which is 16 pixels same as the other sections. */
 }
 
 /* =====================================================================
-   CONTROL CENTER as a station board (mint line, pairs with calendar and mixer)
+   CONTROL CENTER as a station board (ribbon line, pairs with calendar and mixer)
    ===================================================================== */
 .control-center-menu {
     background-color: rgba(10, 15, 28, 0.92);
     border: 1px solid #26304F;
-    border-top: 5px solid #86D6C0;
+    border-top: 5px solid #6FA4FF;
 }
 .control-center-menu .section.system-controls .button {
     background-color: rgba(20, 28, 48, 0.95);
@@ -2775,8 +2775,9 @@ which is 16 pixels same as the other sections. */
     margin: 6px 3px;
     box-shadow: 0px 4px 12px rgba(5, 7, 15, 0.45);
 }
-/* the music island keeps no border: empty it must measure 0px (YASB grouper bug) */
-.music-island {
+/* islands that hide when empty keep no border: empty they must measure 0px (YASB grouper bug) */
+.music-island,
+.apps-island {
     border: none;
 }
 .widget:hover {
