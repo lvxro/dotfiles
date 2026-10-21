@@ -2852,21 +2852,26 @@ which is 16 pixels same as the other sections. */
 .apps-island .taskbar-widget {
     padding: 0px 2px;
 }
-.apps-island .taskbar-widget .app-container {
+/* every icon has the same box in every state (a 2px bottom line, transparent unless focused),
+   so hover only changes the color and nothing shifts */
+.apps-island .taskbar-widget .app-container,
+.apps-island .taskbar-widget .app-container:hover,
+.apps-island .taskbar-widget .app-container.foreground,
+.apps-island .taskbar-widget .app-container.foreground:hover {
     margin: 4px 1px;
     padding: 0px 6px;
-    border-radius: 8px;
     border: none;
+    border-bottom: 2px solid transparent;
+    border-radius: 0px;
     background: transparent;
     box-shadow: none;
 }
 .apps-island .taskbar-widget .app-container:hover {
-    background: rgba(42, 55, 96, 0.55);
+    border-bottom: 2px solid #5A6A99;
 }
-.apps-island .taskbar-widget .app-container.foreground {
-    background: transparent;
+.apps-island .taskbar-widget .app-container.foreground,
+.apps-island .taskbar-widget .app-container.foreground:hover {
     border-bottom: 2px solid #6FA4FF;
-    border-radius: 0px;
 }
 .apps-island .active-window-widget {
     padding: 0px 8px 0px 4px;
@@ -2924,4 +2929,45 @@ which is 16 pixels same as the other sections. */
 }
 .system-island .notification-widget .icon {
     color: #9B82FF;
+}
+
+/* hover inside any island keeps the exact box it has at rest (no border, no margin):
+   in Qt a :hover rule outranks the plain one, so the old pill rules made CPU/RAM grow on hover */
+.apps-island .widget:hover,
+.clock-island .widget:hover,
+.systeminfo-grouper .widget:hover,
+.system-island .widget:hover,
+.music-island .widget:hover {
+    border: none;
+    margin: 0px;
+    box-shadow: none;
+}
+/* CPU / RAM numbers get a fixed width (room for "100.0%" in the mono font),
+   so the island does not resize every time a value gains or loses a digit */
+.systeminfo-grouper .cpu-widget .label,
+.systeminfo-grouper .memory-widget .label {
+    min-width: 38px;
+}
+/* the taskbar and the window name are the island's content, not pills: same box at rest and on hover */
+.apps-island .taskbar-widget,
+.apps-island .taskbar-widget:hover {
+    background: transparent;
+    border: none;
+    margin: 0px;
+    padding: 0px 2px;
+    box-shadow: none;
+}
+.apps-island .active-window-widget,
+.apps-island .active-window-widget:hover {
+    background: transparent;
+    border: none;
+    margin: 0px;
+    padding: 0px 8px 0px 4px;
+    box-shadow: none;
+}
+/* the borderless islands (they hide when empty) stay borderless on hover,
+   otherwise the generic .widget:hover border made them 2px wider */
+.apps-island:hover,
+.music-island:hover {
+    border: none;
 }
