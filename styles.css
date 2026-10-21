@@ -2487,3 +2487,152 @@ which is 16 pixels same as the other sections. */
     border: none;
     padding: 0px;
 }
+
+/* =====================================================================
+   GLOW — YASB's CSS engine supports gradients, box-shadow and text-shadow
+   ===================================================================== */
+.yasb-bar {
+    background: linear-gradient(to bottom, rgba(6, 26, 36, 0.80), rgba(6, 26, 36, 0.66));
+    border-bottom: 2px solid rgba(196, 22, 28, 0.85);
+}
+.widget,
+.system-island,
+.music-island {
+    background: linear-gradient(to bottom, rgba(21, 68, 83, 0.62), rgba(15, 51, 64, 0.50));
+}
+.home-widget {
+    background: radial-gradient(circle at 35% 30%, #D21E26, #9E1217);
+    box-shadow: 0px 0px 10px rgba(229, 38, 45, 0.55);
+}
+.home-widget .icon {
+    text-shadow: 0px 0px 6px rgba(255, 138, 128, 0.85);
+}
+.home-widget:hover {
+    background: radial-gradient(circle at 35% 30%, #FF4A4F, #C4161C);
+    box-shadow: 0px 0px 14px rgba(255, 107, 107, 0.85);
+}
+.clock-widget .widget-container {
+    background: linear-gradient(to bottom, #FFDCC1, #FCCCA8);
+    box-shadow: 0px 0px 10px rgba(252, 204, 168, 0.35);
+}
+.clock-widget .label {
+    text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.35);
+}
+.taskbar-widget .app-container.foreground {
+    box-shadow: 0px 0px 8px rgba(252, 204, 168, 0.35);
+}
+
+/* =====================================================================
+   CONTROL CENTER as a station board (mint line, pairs with calendar and mixer)
+   ===================================================================== */
+.control-center-menu {
+    background-color: rgba(6, 26, 36, 0.92);
+    border: 1px solid #1F4B58;
+    border-top: 5px solid #7FE0C8;
+}
+.control-center-menu .section.system-controls .button {
+    background-color: rgba(15, 51, 64, 0.95);
+    border: 1px solid rgba(169, 203, 193, 0.18);
+    color: #A9CBC1;
+}
+.control-center-menu .section.system-controls .button:hover {
+    background-color: rgba(29, 88, 102, 0.9);
+    color: #FCCCA8;
+}
+.control-center-menu .section.system-controls .button.power {
+    background: radial-gradient(circle at 35% 30%, #D21E26, #9E1217);
+    border: 1px solid #9E1217;
+    color: #F4E6DA;
+    box-shadow: 0px 0px 8px rgba(229, 38, 45, 0.45);
+}
+.control-center-menu .section.quick-actions .button .icon {
+    background: linear-gradient(to bottom, rgba(21, 68, 83, 0.9), rgba(15, 51, 64, 0.9));
+    border: 1px solid rgba(169, 203, 193, 0.14);
+    border-radius: 12px;
+    color: #A9CBC1;
+}
+.control-center-menu .section.quick-actions .button .icon:hover {
+    background: rgba(29, 88, 102, 0.9);
+    border: 1px solid rgba(252, 204, 168, 0.45);
+    color: #FCCCA8;
+}
+.control-center-menu .section.quick-actions .button.active .icon,
+.control-center-menu .section.quick-actions .button.active .icon:hover {
+    background: linear-gradient(to bottom, #FFDCC1, #FCCCA8);
+    border: 1px solid #FCCCA8;
+    color: #061322;
+    box-shadow: 0px 0px 10px rgba(252, 204, 168, 0.45);
+}
+.control-center-menu .section.quick-actions .button .title {
+    color: #A9CBC1;
+    font-size: 12px;
+}
+.control-center-menu .section.sliders .slider .icon,
+.control-center-menu .section.sliders .slider .value {
+    color: #A9CBC1;
+}
+.control-center-menu .section.sliders .slider .slider-control::groove {
+    height: 4px;
+    background: #1F4B58;
+    border-radius: 2px;
+}
+.control-center-menu .section.sliders .slider .slider-control::sub-page {
+    background: #FF6B6B;
+    border-radius: 2px;
+}
+.control-center-menu .section.sliders .slider .slider-control::handle {
+    background: #FCCCA8;
+    border: 2px solid #061A24;
+    width: 12px;
+    height: 12px;
+    margin: -6px 0;
+    border-radius: 7px;
+}
+/* power plan / mode as platforms: dark tile with a red bar on the left */
+.control-center-menu .section.power .plan-name,
+.control-center-menu .section.power .mode-name {
+    background: rgba(15, 51, 64, 0.95);
+    border: 1px solid rgba(169, 203, 193, 0.14);
+    border-left: 3px solid #FF6B6B;
+    border-radius: 6px;
+}
+.control-center-menu .section.power .plan-name:hover,
+.control-center-menu .section.power .mode-name:hover {
+    background: rgba(29, 88, 102, 0.9);
+}
+.control-center-menu .section.power .plan-name .title,
+.control-center-menu .section.power .mode-name .title {
+    color: #A9CBC1;
+    font-weight: 400;
+}
+.control-center-menu .section.power .plan-name .subtext,
+.control-center-menu .section.power .mode-name .subtext,
+.control-center-menu .section.power .plan-name .icon,
+.control-center-menu .section.power .mode-name .icon {
+    color: #FCCCA8;
+}
+.control-center-menu .section.media {
+    border-top: 1px solid #1F4B58;
+}
+.control-center-menu .section.media .title {
+    color: #F4E6DA;
+}
+.control-center-menu .section.media .subtext {
+    color: #7FA39A;
+}
+.control-center-menu .section.media .button {
+    background: rgba(15, 51, 64, 0.95);
+    border: 1px solid rgba(169, 203, 193, 0.14);
+    color: #A9CBC1;
+}
+.control-center-menu .section.media .button.play {
+    background: linear-gradient(to bottom, #FFDCC1, #FCCCA8);
+    border: 1px solid #FCCCA8;
+    color: #061322;
+}
+/* same specificity as the .widget gradient above, so it has to come after it */
+.clock-widget,
+.clock-widget:hover {
+    background: transparent;
+    border: none;
+}
