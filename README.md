@@ -21,6 +21,8 @@ My Windows 11 rice: a [YASB](https://github.com/amnweb/yasb) bar, [Windhawk](htt
 | `nilesoft/theme.nss` | Right-click menu theme for [Nilesoft Shell](https://nilesoft.org) (copy to `C:\Program Files\Nilesoft Shell\imports\`, needs admin) |
 | `discord/` | [midnight](https://github.com/refact0r/midnight-discord) by refact0r, recolored to the palette (Vencord/Equicord/BetterDiscord: drop it in the themes folder) |
 | `steam/quick.css` | Palette for [SpaceTheme](https://github.com/SpaceTheme/Steam) on [Millennium](https://steambrew.app); install the theme, then copy this to `Steam\millennium\config\` |
+| `btop/red-balloon.theme` | btop4win theme |
+| `install.ps1` | Copies everything above into place |
 | `zapfast/` | Night and day themes for ZapFast (copy to `%APPDATA%\paolino\zapfast\config\themes\`) |
 
 ## The bar
@@ -31,6 +33,19 @@ My Windows 11 rice: a [YASB](https://github.com/amnweb/yasb) bar, [Windhawk](htt
   - Music island: controls, title and artist, and an audio visualizer. It hides itself when nothing is playing.
   - System island: weather, system tray, volume, notifications and control center.
 - **Alt + Space:** app launcher. The search button is hidden, but the shortcut still works.
+
+## Quick install
+
+Install the apps you want (YASB, Windhawk and its mods, Windows Terminal, fastfetch, btop4win, Equicord, Millennium, Nilesoft Shell, VS Code…), clone the repo, then run:
+
+```powershell
+git clone https://github.com/lvxro/dotfiles "$env:USERPROFILE\.config\yasb"
+cd "$env:USERPROFILE\.config\yasb"
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -DryRun   # preview
+powershell -ExecutionPolicy Bypass -File .\install.ps1
+```
+
+It skips anything that is not installed and backs up existing files as `.bak`. `-Only terminal,discord` runs just those steps (`yasb`, `wallpaper`, `accent`, `terminal`, `shell`, `btop`, `windhawk`, `discord`, `steam`, `browser`, `vscode`, `zapfast`, `nilesoft`). The manual steps below explain what each one does.
 
 ## Installation
 
