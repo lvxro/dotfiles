@@ -1,4 +1,4 @@
-# Red Balloon theme`n# watch_config_changes: Automatically reload borders whenever the config file is modified.
+# Night Balcony theme`n# watch_config_changes: Automatically reload borders whenever the config file is modified.
 watch_config_changes: True
 
 # enable_logging: Log messages (info, warnings, and errors) to a file.
@@ -91,11 +91,11 @@ global:
   #       Each value (dark/light) can be a hex code, "accent", or a gradient.
   #       Borders automatically update when the system theme changes.
   active_color:
-    colors: ["#FCCCA8", "#FF6B6B"]   # sunset peach into balloon red
+    colors: ["#6FA4FF", "#9B82FF"]   # ribbon blue into eye violet
     direction: 45deg
 
   inactive_color:
-    colors: ["#173C49", "#1F4B58"]   # quiet night teal
+    colors: ["#1A2338", "#26304F"]   # quiet night navy
     direction:
       start: [0.0, 1.0]
       end: [1.0, 0.0]

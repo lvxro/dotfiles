@@ -1,37 +1,37 @@
-# dotfiles — Red Balloon
+# dotfiles — Night Balcony
 
-My Windows 11 rice: a [YASB](https://github.com/amnweb/yasb) bar, [Windhawk](https://windhawk.net) mods, Windows Terminal and fastfetch, all sharing one palette taken from the wallpaper: night teal, cream, peach and the red of the balloons.
+My Windows 11 rice: a [YASB](https://github.com/amnweb/yasb) bar, [Windhawk](https://windhawk.net) mods, Windows Terminal and fastfetch, all sharing one palette taken from the wallpaper: night navy, moonlight, the blue of her ribbon and the violet of her eyes.
 
-![wallpaper](wallpaper/red-balloon.jpg)
+![wallpaper](wallpaper/night-balcony.jpg)
 
 ## What's inside
 
 | File | Purpose |
 |---|---|
 | `config.yaml` | YASB widgets and layout |
-| `styles.css` | Red Balloon theme (also includes a commented-out day variant) |
-| `wallpaper/red-balloon.jpg` | The wallpaper the palette is based on |
+| `styles.css` | Night Balcony theme (also includes a commented-out day variant) |
+| `wallpaper/night-balcony.jpg` | The wallpaper the palette is based on |
 | `windhawk/*.ini` | Settings for each Windhawk mod |
-| `terminal/red-balloon.json` | Windows Terminal color scheme, tab theme and profile defaults |
+| `terminal/night-balcony.json` | Windows Terminal color scheme, tab theme and profile defaults |
 | `powershell/` | Prompt colors and the profile snippet that runs fastfetch |
 | `fastfetch/` | fastfetch config and the sixel logo |
-| `windows/accent.reg` | Balloon-red accent color for Windows |
-| `helium/` | Chromium theme (works in Helium, Chrome, Brave…) with a gradient new-tab page |
-| `vscode/` | Red Balloon color theme for VS Code (source and `.vsix`) |
+| `windows/accent.reg` | Ribbon-blue accent color for Windows |
+| `helium/` | Chromium theme (works in Helium, Chrome, Brave…): solid night navy tabs and toolbar, ribbon-blue icons |
+| `vscode/` | Night Balcony color theme for VS Code (source and `.vsix`) |
 | `nilesoft/theme.nss` | Right-click menu theme for [Nilesoft Shell](https://nilesoft.org) (copy to `C:\Program Files\Nilesoft Shell\imports\`, needs admin) |
 | `discord/` | [midnight](https://github.com/refact0r/midnight-discord) by refact0r, recolored to the palette (Vencord/Equicord/BetterDiscord: drop it in the themes folder) |
 | `steam/quick.css` | Palette for [SpaceTheme](https://github.com/SpaceTheme/Steam) on [Millennium](https://steambrew.app); install the theme, then copy this to `Steam\millennium\config\` |
-| `btop/red-balloon.theme` | btop4win theme |
+| `btop/night-balcony.theme` | btop4win theme |
 | `starship/starship.toml` | [Starship](https://starship.rs) prompt in the palette |
-| `flow-launcher/Red Balloon.xaml` | [Flow Launcher](https://www.flowlauncher.com) theme (Alt+Space) |
-| `tacky-borders/config.yaml` | [Tacky Borders](https://github.com/lukeyou05/tacky-borders): peach-to-red gradient on the active window |
-| `helium-newtab/` | Dashboard new tab: the sharp balcony wallpaper lined up with the desktop, with one frosted glass panel holding the clock, weather, search, shortcut pills and a 家 folder menu. Your links, folders and city go in `config.js` (copied from `config.example.js`, not tracked) |
+| `flow-launcher/Night Balcony.xaml` | [Flow Launcher](https://www.flowlauncher.com) theme (Alt+Space) |
+| `tacky-borders/config.yaml` | [Tacky Borders](https://github.com/lukeyou05/tacky-borders): blue-to-violet gradient on the active window |
+| `helium-newtab/` | Bento new tab on solid night navy, apart from the wallpaper: big clock with the day's progress, a prompt-style search with `!yt` `!gh` `!al` `!w` bangs (`/` focuses it), weather, the month, the fastfetch girl in line art, shortcuts and what airs today on AniList (or your own watching list with `anilistUser`). Your name, links and city go in `config.js` (copied from `config.example.js`, not tracked) |
 | `install.ps1` | Copies everything above into place |
 | `zapfast/` | Night and day themes for ZapFast (copy to `%APPDATA%\paolino\zapfast\config\themes\`) |
 
 ## The bar
 
-- **Left:** `家` button (folder menu) and a taskbar pill with one icon per open app (click to switch, middle-click to close). The focused app gets a peach tint.
+- **Left:** `家` button (folder menu) and a taskbar pill with one icon per open app (click to switch, middle-click to close). The focused app gets a blue tint.
 - **Center:** clock `Mon 19 · 21:14`. Left click opens the calendar; right click shows the full date.
 - **Right:**
   - Music island: controls, title and artist, and an audio visualizer. It hides itself when nothing is playing.
@@ -55,8 +55,9 @@ It skips anything that is not installed and backs up existing files as `.bak`. `
 
 1. Install [YASB](https://github.com/amnweb/yasb/releases).
 2. Install the fonts:
-   - [Zen Kaku Gothic New](https://fonts.google.com/specimen/Zen+Kaku+Gothic+New) for all bar text (Latin and Japanese).
-   - [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads) for the icons.
+   - [M PLUS Rounded 1c](https://fonts.google.com/specimen/M+PLUS+Rounded+1c) for all bar text (Latin and Japanese; Windows lists it as *Rounded Mplus 1c*).
+   - [M+1Code Nerd Font](https://www.nerdfonts.com/font-downloads) (inside `MPlus.zip`) for the terminal, Discord code blocks and the bar's mono labels.
+   - [JetBrainsMono Nerd Font](https://www.nerdfonts.com/font-downloads) for the bar icons.
 3. Clone this repo into `%USERPROFILE%\.config\yasb\`:
 
    ```powershell
@@ -73,9 +74,9 @@ Install [Windhawk](https://windhawk.net) and these mods from its Explore tab:
 
 | Mod | What it does here |
 |---|---|
-| Windows 11 File Explorer Styler | TintedGlass theme tinted with the bar's teal |
-| Translucent Windows | Teal blur behind Explorer, context menus and classic windows |
-| Windows 11 Notification Center Styler | TintedGlass in teal, peach accent, 12px corners |
+| Windows 11 File Explorer Styler | TintedGlass theme tinted with the bar's navy |
+| Translucent Windows | Navy blur behind Explorer, context menus and classic windows |
+| Windows 11 Notification Center Styler | TintedGlass in navy, blue accent, 12px corners |
 | Better file sizes in Explorer details | Folder sizes via [Everything](https://www.voidtools.com/) (enable *Index folder size* in its options) |
 | Customize Windows notifications placement | Toasts appear top-right, just below the bar |
 | Taskbar auto-hide fine tuning | Mode *Never*: the Windows taskbar never shows, YASB replaces it. Needs taskbar auto-hide on. `` Alt+` `` toggles it back if you need it |
@@ -91,14 +92,14 @@ icacls "<Windhawk folder>\AppData\Engine" /grant "*S-1-15-2-1:(OI)(CI)(RX)" "*S-
 ### Terminal, PowerShell and fastfetch
 
 1. Install [fastfetch](https://github.com/fastfetch-cli/fastfetch) (`winget install fastfetch`). [Starship](https://starship.rs) is optional; without it the prompt in `powershell/prompt.ps1` is used.
-2. Copy `fastfetch/` to `%USERPROFILE%\.config\fastfetch\` and `powershell/prompt.ps1` to `%USERPROFILE%\.config\red-balloon\prompt.ps1`.
+2. Copy `fastfetch/` to `%USERPROFILE%\.config\fastfetch\` and `powershell/prompt.ps1` to `%USERPROFILE%\.config\night-balcony\prompt.ps1`.
 3. Append `powershell/profile.ps1` to your `$PROFILE`.
-4. In Windows Terminal, open **Settings → Open JSON file** and merge in `terminal/red-balloon.json`. The logo is drawn with sixel, which needs Windows Terminal 1.22 or newer.
+4. In Windows Terminal, open **Settings → Open JSON file** and merge in `terminal/night-balcony.json`. The logo is drawn with sixel, which needs Windows Terminal 1.22 or newer.
 
 ### Browser and editor
 
 - **Browser:** open `chrome://extensions`, turn on Developer mode, click **Load unpacked** and pick the `helium/` folder.
-- **VS Code:** run `code --install-extension vscode/red-balloon.vsix`, then pick **Red Balloon** in *Preferences: Color Theme*.
+- **VS Code:** run `code --install-extension vscode/night-balcony.vsix`, then pick **Night Balcony** in *Preferences: Color Theme*.
 
 ### Accent color
 
@@ -107,7 +108,7 @@ Double-click `windows/accent.reg`, then sign out and back in so every part of Wi
 ## Things you may want to change
 
 - **Spotifast:** `active_window.ignore_window` excludes `spotifast.exe`, since the current song is already shown in the music island. If you use Spotify, change it to `Spotify.exe`.
-- **Day theme:** in `styles.css`, comment out the "Red Balloon (night)" block and uncomment the "(day)" one.
+- **Day theme:** in `styles.css`, comment out the "Night Balcony (night)" block and uncomment the "(day)" one.
 - **Time-only clock:** in `config.yaml`, set the `clock` `label` to `'{%H:%M}<span>{alarm}</span>'`.
 
 ## Credits

@@ -1,7 +1,7 @@
 {
-  "name": "red-balloon",
-  "displayName": "Red Balloon",
-  "description": "Night teal, peach and the red of the balloons.",
+  "name": "night-balcony",
+  "displayName": "Night Balcony",
+  "description": "Night navy, the blue of her ribbon and the violet of her eyes.",
   "version": "1.0.0",
   "publisher": "lvxro",
   "license": "MIT",
@@ -18,14 +18,14 @@
   "contributes": {
     "themes": [
       {
-        "label": "Red Balloon",
+        "label": "Night Balcony",
         "uiTheme": "vs-dark",
-        "path": "./themes/red-balloon.json"
+        "path": "./themes/night-balcony.json"
       },
       {
-        "label": "Red Balloon Day",
+        "label": "Night Balcony Day",
         "uiTheme": "vs",
-        "path": "./themes/red-balloon-day.json"
+        "path": "./themes/night-balcony-day.json"
       }
     ]
   }

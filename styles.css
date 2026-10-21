@@ -5,9 +5,9 @@
 
     --icons-font: "JetBrainsMono NFP", "JetBrainsMono Nerd Font Propo";
     --icons-font-fallback: "JetBrainsMono NFP", "JetBrainsMono Nerd Font Propo";
-    --system-font: "Zen Kaku Gothic New", "Yu Gothic UI", "Segoe UI Variable", "Segoe UI";  /* Latin and Japanese in the same family */
-    --specialFont: "Zen Kaku Gothic New", "Yu Gothic UI", "Segoe UI Variable", "Segoe UI";
-    --clockFont: "Zen Kaku Gothic New", "Yu Gothic UI", "Segoe UI Variable", "Segoe UI";  /* clock + calendar */
+    --system-font: "Rounded Mplus 1c", "M PLUS Rounded 1c", "Zen Kaku Gothic New", "Yu Gothic UI", "Segoe UI Variable", "Segoe UI";  /* rounded, with its own kanji: Latin and Japanese in the same family */
+    --specialFont: "Rounded Mplus 1c", "M PLUS Rounded 1c", "Zen Kaku Gothic New", "Yu Gothic UI", "Segoe UI Variable", "Segoe UI";
+    --clockFont: "Rounded Mplus 1c", "M PLUS Rounded 1c", "Zen Kaku Gothic New", "Yu Gothic UI", "Segoe UI Variable", "Segoe UI";  /* clock + calendar */
     --border-radius: 16;
     --border-radius2: 14;
     --border-radius3: 12;
@@ -187,40 +187,40 @@
     --redFlash: #E59875;
     --subtext: #859289; */
 
-    /* Red Balloon (night) — palette taken from the wallpaper */
-    --background: #08202B;   /* Deep teal: widget pill */
-    --background2: #173C49;  /* Eave-shadow blue */
-    --accent: #FCCCA8;       /* Sunset peach (clock, active workspace) */
-    --text: #F4E6DA;         /* Crema papel */
-    --accentText: #061322;   /* Power-line dark, text on peach */
-    --hover: #1D5866;        /* Teal cielo oscurecido */
-    --mutedBG: #0F3340;
-    --border: #1F4B58;
-    --redFlash: #FF7A70;     /* Lightened balloon red for UI */
-    --subtext: #A9CBC1;      /* Cloud sage */
-    --crimson: #FF6B6B;      /* The red accent */
-    --popupBG: rgba(8, 32, 43, 0.74);  /* Translucent night teal for blurred popups */
-    --dim: #5E8285;
+    /* Night Balcony (night) — palette taken from the wallpaper */
+    --background: #0E1424;   /* Deep navy: widget pill */
+    --background2: #1A2338;  /* Shadow navy */
+    --accent: #6FA4FF;       /* Ribbon blue (clock, active workspace) */
+    --text: #DFE6FB;         /* Moonlight */
+    --accentText: #070A14;   /* Darkest navy, text on blue */
+    --hover: #2A3760;        /* Night sky, darkened */
+    --mutedBG: #141C30;
+    --border: #26304F;
+    --redFlash: #F2899C;     /* Rose, for alerts */
+    --subtext: #A3B4E0;      /* Sky haze */
+    --crimson: #9B82FF;      /* The red accent */
+    --popupBG: rgba(14, 20, 36, 0.74);  /* Translucent night navy for blurred popups */
+    --dim: #5A6A99;
     --text-muted: var(--subtext);
-    --pill: rgba(8, 32, 43, 0.80);       /* Semi-transparent islands: lets the sky through */
-    --pillHover: rgba(29, 88, 102, 0.55);/* Hover inside an island */
-    --balloon: #C4161C;                    /* Pure balloon red, for backgrounds */
-    --balloonLight: #FF6B6B;              /* Light balloon red, for hover borders */
+    --pill: rgba(14, 20, 36, 0.80);       /* Semi-transparent islands: lets the sky through */
+    --pillHover: rgba(42, 55, 96, 0.55);/* Hover inside an island */
+    --balloon: #6A4DFF;                    /* Eye violet, for backgrounds */
+    --balloonLight: #9B82FF;              /* Light eye violet, for hover borders */
 
-    /* Red Balloon (day) — uncomment this block and comment out the one above */
-    /* --background: #F4E6DA;
-    --background2: #EADACB;
-    --accent: #0E5F70;
-    --text: #061322;
-    --accentText: #F4E6DA;
-    --hover: #D9ECE6;
-    --mutedBG: #FBF4EE;
-    --border: #D4BFAE;
-    --redFlash: #B2000E;
-    --subtext: #3F5F66;
-    --crimson: #B2000E;
-    --popupBG: rgba(244, 230, 218, 0.78);
-    --dim: #66797B; */
+    /* Night Balcony (day) — uncomment this block and comment out the one above */
+    /* --background: #DFE6FB;
+    --background2: #D3DCF4;
+    --accent: #3563D6;
+    --text: #070A14;
+    --accentText: #DFE6FB;
+    --hover: #DCE4F8;
+    --mutedBG: #F2F5FE;
+    --border: #AAB7DA;
+    --redFlash: #B3324F;
+    --subtext: #3E4A78;
+    --crimson: #5B3FD6;
+    --popupBG: rgba(223, 230, 251, 0.78);
+    --dim: #5D6990; */
 
     /* Nord */
     /* --background: #2e3440;
@@ -363,7 +363,7 @@
 }
 .widget:hover {
     border: 1px solid var(--balloonLight);
-    background-color: rgba(8, 32, 43, 0.94);
+    background-color: rgba(14, 20, 36, 0.94);
 }
 
 /* Click feedback on any widget */
@@ -420,16 +420,16 @@
     padding-bottom: 2px;
 }
 
-/* Home Menu — the 家 button wears the balloon red */
+/* Home Menu — the 家 button wears the eye violet */
 /* 家: dim red at rest, "lights up" on hover.
    (Qt does not support text-shadow/box-shadow, so the glow is color + border) */
 .home-widget {
-    background-color: #9E1217;
-    border: 1px solid #9E1217;
+    background-color: #4E36C9;
+    border: 1px solid #4E36C9;
     padding: 0px 10px;
 }
 .home-widget:hover {
-    background-color: #E5262D;
+    background-color: #7C5CFF;
     border: 1px solid var(--accent);
 }
 .home-widget .icon {
@@ -477,9 +477,9 @@
     margin: 0px;
     padding: 2px 8px;
 }
-/* Hover: the pill brightens, with a balloon-red border (same size) */
+/* Hover: the pill brightens, with a violet border (same size) */
 .clock-widget .widget-container:hover {
-    background-color: #FFDEC4;
+    background-color: #9DC2FF;
     border: 1px solid var(--balloonLight);
 }
 
@@ -491,7 +491,7 @@
     font-weight: 700;
 }
 
-/* No dark .widget pill underneath: the peach pill takes the full height,
+/* No dark .widget pill underneath: the blue pill takes the full height,
    same as the other islands */
 .clock-widget,
 .clock-widget:hover {
@@ -555,59 +555,59 @@
 }
 
 /* ---------- Calendar as a station board (pairs with the mixer) ----------
-   same night teal as the mixer, a balloon-red line stripe on top, the weekday as a
+   same night navy as the mixer, a violet line stripe on top, the weekday as a
    line-color tag, the day number in a framed platform plate, the week as a station code */
 .clock-popup.calendar {
-    background-color: rgba(6, 26, 36, 0.92);
-    border: 1px solid #1F4B58;
-    border-top: 5px solid #FF6B6B;
+    background-color: rgba(10, 15, 28, 0.92);
+    border: 1px solid #26304F;
+    border-top: 5px solid #9B82FF;
 }
 .clock-popup.calendar .day-label {
-    background-color: #C4161C;
-    color: #F4E6DA;
+    background-color: #6A4DFF;
+    color: #DFE6FB;
     border-radius: 6px;
     padding: 3px 0px;
     font-size: 14px;
 }
 .clock-popup.calendar .month-label {
-    color: #FCCCA8;
+    color: #6FA4FF;
     font-weight: 700;
     margin-top: 8px;
 }
 .clock-popup.calendar .year-label {
-    color: #5E8285;
+    color: #5A6A99;
 }
 .clock-popup.calendar .date-label {
-    color: #FCCCA8;
-    border: 2px solid #FCCCA8;
+    color: #6FA4FF;
+    border: 2px solid #6FA4FF;
     border-radius: 16px;
-    background-color: rgba(252, 204, 168, 0.06);
+    background-color: rgba(111, 164, 255, 0.06);
     margin: 6px 20px 0px 20px;
     padding: 0px 0px 18px 0px;   /* the font sits low; extra bottom padding centers the digits in the plate */
 }
 .clock-popup.calendar .week-label {
-    color: #A9CBC1;
-    border: 1px solid #1F4B58;
+    color: #A3B4E0;
+    border: 1px solid #26304F;
     border-radius: 10px;
     padding: 2px 0px;
     margin: 8px 40px 0px 40px;
-    font-family: "JetBrainsMono Nerd Font", var(--system-font);
+    font-family: "M+1Code Nerd Font", "JetBrainsMono Nerd Font", var(--system-font);
     font-size: 11px;
 }
 .clock-popup.calendar .calendar-table,
 .clock-popup.calendar .calendar-table::item {
-    color: #F4E6DA;
+    color: #DFE6FB;
 }
 .clock-popup.calendar .calendar-table::item:selected {
-    color: #061322;
-    background-color: #FCCCA8;
+    color: #070A14;
+    background-color: #6FA4FF;
     border-radius: 6px;
 }
 .clock-popup.calendar QHeaderView::section {
     background-color: transparent;
-    color: #A9CBC1;
+    color: #A3B4E0;
     border: none;
-    border-bottom: 1px solid #1F4B58;
+    border-bottom: 1px solid #26304F;
     font-weight: 700;
     padding-bottom: 4px;
 }
@@ -927,16 +927,16 @@
 }
 
 /* ---------- Mixer as a station board ----------
-   a peach "line color" stripe on top, outputs listed like platforms, the active
-   one marked with a balloon-red bar, sliders like a route line */
+   a blue "line color" stripe on top, outputs listed like platforms, the active
+   one marked with a violet bar, sliders like a route line */
 .audio-menu {
-    background-color: rgba(6, 26, 36, 0.92);
-    border: 1px solid #1F4B58;
-    border-top: 5px solid #FCCCA8;
+    background-color: rgba(10, 15, 28, 0.92);
+    border: 1px solid #26304F;
+    border-top: 5px solid #6FA4FF;
     min-width: 330px;
 }
 .audio-menu .audio-container .device {
-    color: #A9CBC1;
+    color: #A3B4E0;
     border-left: 3px solid transparent;
     border-radius: 4px;
     padding: 7px 10px;
@@ -944,30 +944,30 @@
 }
 .audio-menu .audio-container .device.selected,
 .audio-menu .audio-container .device.selected:hover {
-    background-color: rgba(29, 88, 102, 0.55);
-    color: #FCCCA8;
+    background-color: rgba(42, 55, 96, 0.55);
+    color: #6FA4FF;
     font-weight: 700;
-    border-left: 3px solid #FF6B6B;
+    border-left: 3px solid #9B82FF;
 }
 .audio-menu .audio-container .device:hover {
-    background-color: rgba(29, 88, 102, 0.35);
-    color: #F4E6DA;
+    background-color: rgba(42, 55, 96, 0.35);
+    color: #DFE6FB;
 }
 .audio-menu .system-volume-container .volume-slider::groove,
 .audio-menu .apps-container .app-volume .app-slider::groove {
     height: 4px;
-    background: #1F4B58;
+    background: #26304F;
     border-radius: 2px;
 }
 .audio-menu .system-volume-container .volume-slider::sub-page,
 .audio-menu .apps-container .app-volume .app-slider::sub-page {
-    background: #FF6B6B;
+    background: #9B82FF;
     border-radius: 2px;
 }
 .audio-menu .system-volume-container .volume-slider::handle,
 .audio-menu .apps-container .app-volume .app-slider::handle {
-    background: #FCCCA8;
-    border: 2px solid #061A24;
+    background: #6FA4FF;
+    border: 2px solid #0A0F1C;
     width: 12px;
     height: 12px;
     margin: -6px 0;
@@ -977,25 +977,25 @@
 .audio-menu .toggle-apps {
     font-family: var(--icons-font);
     font-size: 12px;
-    color: #A9CBC1;
+    color: #A3B4E0;
 }
 .audio-menu .toggle-apps:hover {
-    color: #FCCCA8;
+    color: #6FA4FF;
 }
 .audio-menu .apps-container {
-    border-top: 1px solid #1F4B58;
+    border-top: 1px solid #26304F;
     border-radius: 0;
     margin-top: 8px;
 }
 .audio-menu .apps-container .app-volume .app-label {
-    color: #A9CBC1;
-    font-family: "JetBrainsMono Nerd Font", var(--system-font);
+    color: #A3B4E0;
+    font-family: "M+1Code Nerd Font", "JetBrainsMono Nerd Font", var(--system-font);
     font-size: 11px;
 }
 
-/* Taskbar — open apps as icons in one pill; the focused app gets a peach tint */
+/* Taskbar — open apps as icons in one pill; the focused app gets a blue tint */
 .taskbar-widget {
-    background-color: rgba(8, 32, 43, 0.62);
+    background-color: rgba(14, 20, 36, 0.62);
     border: 1px solid transparent;
     box-shadow: 0px 2px 6px rgba(2, 10, 16, 0.35);
     padding: 0px 4px;
@@ -1011,26 +1011,26 @@
     background-color: var(--pillHover);
 }
 .taskbar-widget .app-container.foreground {
-    background-color: rgba(252, 204, 168, 0.18);
-    border: 1px solid rgba(252, 204, 168, 0.45);
+    background-color: rgba(111, 164, 255, 0.18);
+    border: 1px solid rgba(111, 164, 255, 0.45);
 }
 .taskbar-widget .app-container.running.minimized {
     opacity: 0.5;
 }
 .taskbar-widget .app-container.flashing {
-    background-color: rgba(255, 107, 107, 0.25);
+    background-color: rgba(155, 130, 255, 0.25);
     border: 1px solid var(--crimson);
 }
 
-/* Active Windows Title — context, not a widget: no pill, in sage */
+/* Active Windows Title — context, not a widget: no pill, in haze */
 .active-window-widget {
-    background-color: rgba(8, 32, 43, 0.62);
+    background-color: rgba(14, 20, 36, 0.62);
     border: 1px solid transparent;
     box-shadow: 0px 2px 6px rgba(2, 10, 16, 0.35);
     padding: 0px 10px;
 }
 .active-window-widget:hover {
-    background-color: rgba(8, 32, 43, 0.85);
+    background-color: rgba(14, 20, 36, 0.85);
     border: 1px solid var(--border);
 }
 .active-window-widget .icon {
@@ -1039,7 +1039,7 @@
     color: var(--text);
 }
 .active-window-widget .label {
-    color: #C9E0D9;
+    color: #C3D0F0;
     font-weight: 600;
     text-shadow: 0px 1px 3px rgba(2, 10, 16, 0.8);
 }
@@ -1186,7 +1186,7 @@
 /* notification-widget */
 .notification-widget .icon {
     color: var(--crimson);
-    text-shadow: 0px 0px 6px rgba(255, 107, 107, 0.65);
+    text-shadow: 0px 0px 6px rgba(155, 130, 255, 0.65);
 }
 
 /* Media widget (barra) */
@@ -1215,7 +1215,7 @@
 /* prev/next almost dimmed; they light up on hover */
 .media-widget .btn.prev,
 .media-widget .btn.next {
-    color: rgba(169, 203, 193, 0.35);
+    color: rgba(163, 180, 224, 0.35);
 }
 .media-widget .btn.prev:hover,
 .media-widget .btn.next:hover {
@@ -1223,7 +1223,7 @@
 }
 .media-widget .progress-bar {
     max-height: 2px;
-    background-color: rgba(244, 230, 218, 0.12);
+    background-color: rgba(223, 230, 251, 0.12);
     border: none;
     border-radius: 1px;
     margin: 0px 10px 1px 10px;
@@ -1248,7 +1248,7 @@
 .open-meteo-widget .icon.rainyNight,
 .open-meteo-widget .icon.drizzleDay,
 .open-meteo-widget .icon.drizzleNight {
-    color: #8EC5D6;
+    color: #9DB4EE;
 }
 .open-meteo-widget .icon.thunderstormDay,
 .open-meteo-widget .icon.thunderstormNight {
@@ -1326,10 +1326,10 @@
     background-color: var(--accent);
 }
 .open-meteo-card .hourly-data.rain {
-    background-color: #4A9DB3;
+    background-color: #5E86E0;
 }
 .open-meteo-card .hourly-data.snow {
-    background-color: #A9CBC1;
+    background-color: #A3B4E0;
 }
 .open-meteo-card .hourly-data .hourly-rain-animation {
     color: rgba(150, 200, 255, 40);
@@ -1484,7 +1484,7 @@ Example: "Windows Media" becomes "windows-media" */
     color: #ffffff;
 }
 .media-menu .source.qobuz {
-    background-color: #003a6f;
+    background-color: #1e3a8f;
     color: #ffffff;
 }
 .media-menu .source.spotify {
@@ -1504,7 +1504,7 @@ Example: "Windows Media" becomes "windows-media" */
     color: #ffffff;
 }
 .media-menu .source.youtube-music {
-    background-color: #c51f1f;
+    background-color: #6a4dff;
     color: #ffffff;
 }
 .media-menu .source.zen {
@@ -2335,7 +2335,7 @@ which is 16 pixels same as the other sections. */
 }
 .music-island:hover {
     border: none;
-    background-color: rgba(8, 32, 43, 0.94);
+    background-color: rgba(14, 20, 36, 0.94);
 }
 .music-island .media-widget {
     margin: 0px;
@@ -2356,8 +2356,8 @@ which is 16 pixels same as the other sections. */
     border: none;
 }
 .audio-visualizer-widget .audio-visualizer-canvas {
-    /* thin peach bars, subtler than the red ones */
-    -qproperty-fillbrush: linear-gradient(to top, rgba(252, 204, 168, 0.45), #FCCCA8);
+    /* thin blue bars, subtler than the red ones */
+    -qproperty-fillbrush: linear-gradient(to top, rgba(111, 164, 255, 0.45), #6FA4FF);
 }
 
 /* =====================================================================
@@ -2365,7 +2365,7 @@ which is 16 pixels same as the other sections. */
    Only applies with `style: "adaptive"` in config.yaml.
    ===================================================================== */
 .yasb-bar.adaptive {
-    background-color: rgba(8, 32, 43, 0.90);
+    background-color: rgba(14, 20, 36, 0.90);
     border: none;
     padding: 0px;
     -qproperty-railheight: 3;
@@ -2373,7 +2373,7 @@ which is 16 pixels same as the other sections. */
     -qproperty-grouppadding: 6;
     -qproperty-edgeradius: 14;
     -qproperty-borderwidth: 1;
-    -qproperty-bordercolor: rgba(31, 75, 88, 0.9);
+    -qproperty-bordercolor: rgba(38, 48, 79, 0.9);
 }
 .yasb-bar.adaptive .container-left {
     padding-left: 6px;
@@ -2399,7 +2399,7 @@ which is 16 pixels same as the other sections. */
 .yasb-bar.adaptive .music-island,
 .yasb-bar.adaptive .system-island,
 .yasb-bar.adaptive .alert-island {
-    background-color: rgba(23, 60, 73, 0.55);
+    background-color: rgba(26, 35, 56, 0.55);
     border: 1px solid transparent;
     border-radius: var(--border-radius3);
     margin: 4px 3px;
@@ -2408,7 +2408,7 @@ which is 16 pixels same as the other sections. */
 .yasb-bar.adaptive .music-island:hover,
 .yasb-bar.adaptive .system-island:hover,
 .yasb-bar.adaptive .alert-island:hover {
-    background-color: rgba(23, 60, 73, 0.75);
+    background-color: rgba(26, 35, 56, 0.75);
     border: 1px solid var(--balloonLight);
 }
 .yasb-bar.adaptive .music-island .widget,
@@ -2418,7 +2418,7 @@ which is 16 pixels same as the other sections. */
     padding: 0px 7px;
 }
 
-/* Accents that stay: red 家 and peach clock */
+/* Accents that stay: violet 家 and blue clock */
 .yasb-bar.adaptive .home-widget {
     background-color: var(--balloon);
     border: 1px solid var(--balloon);
@@ -2443,28 +2443,28 @@ which is 16 pixels same as the other sections. */
    to floating pills (and restore the 8px top/bottom padding in config.yaml).
    ===================================================================== */
 .yasb-bar {
-    background-color: rgba(6, 26, 36, 0.72);
-    border-bottom: 1px solid rgba(169, 203, 193, 0.16);
+    background-color: rgba(10, 15, 28, 0.72);
+    border-bottom: 1px solid rgba(163, 180, 224, 0.16);
     padding: 0px 10px;
 }
 .widget {
     margin: 6px 3px;
-    background-color: rgba(15, 51, 64, 0.55);
-    border: 1px solid rgba(169, 203, 193, 0.10);
+    background-color: rgba(20, 28, 48, 0.55);
+    border: 1px solid rgba(163, 180, 224, 0.10);
 }
 .widget:hover {
-    background-color: rgba(29, 88, 102, 0.55);
-    border: 1px solid rgba(252, 204, 168, 0.45);
+    background-color: rgba(42, 55, 96, 0.55);
+    border: 1px solid rgba(111, 164, 255, 0.45);
 }
 .system-island {
     margin: 6px 3px;
-    background-color: rgba(15, 51, 64, 0.55);
-    border: 1px solid rgba(169, 203, 193, 0.10);
+    background-color: rgba(20, 28, 48, 0.55);
+    border: 1px solid rgba(163, 180, 224, 0.10);
 }
 /* no border on the music island: when empty it must measure 0px (YASB grouper bug) */
 .music-island {
     margin: 6px 3px;
-    background-color: rgba(15, 51, 64, 0.55);
+    background-color: rgba(20, 28, 48, 0.55);
 }
 .music-island .widget,
 .system-island .widget {
@@ -2474,11 +2474,11 @@ which is 16 pixels same as the other sections. */
 }
 /* keep the accents: same specificity as .widget, so they must come after it */
 .home-widget {
-    background-color: #9E1217;
-    border: 1px solid #9E1217;
+    background-color: #4E36C9;
+    border: 1px solid #4E36C9;
 }
 .home-widget:hover {
-    background-color: #E5262D;
+    background-color: #7C5CFF;
     border: 1px solid var(--accent);
 }
 .clock-widget,
@@ -2492,97 +2492,97 @@ which is 16 pixels same as the other sections. */
    GLOW — YASB's CSS engine supports gradients, box-shadow and text-shadow
    ===================================================================== */
 .yasb-bar {
-    background: linear-gradient(to bottom, rgba(6, 26, 36, 0.80), rgba(6, 26, 36, 0.66));
-    border-bottom: 2px solid rgba(196, 22, 28, 0.85);
+    background: linear-gradient(to bottom, rgba(10, 15, 28, 0.80), rgba(10, 15, 28, 0.66));
+    border-bottom: 2px solid rgba(106, 77, 255, 0.85);
 }
 .widget,
 .system-island,
 .music-island {
-    background: linear-gradient(to bottom, rgba(21, 68, 83, 0.62), rgba(15, 51, 64, 0.50));
+    background: linear-gradient(to bottom, rgba(30, 40, 66, 0.62), rgba(20, 28, 48, 0.50));
 }
 .home-widget {
-    background: radial-gradient(circle at 35% 30%, #D21E26, #9E1217);
-    box-shadow: 0px 0px 10px rgba(229, 38, 45, 0.55);
+    background: radial-gradient(circle at 35% 30%, #7356F0, #4E36C9);
+    box-shadow: 0px 0px 10px rgba(124, 92, 255, 0.55);
 }
 .home-widget .icon {
-    text-shadow: 0px 0px 6px rgba(255, 138, 128, 0.85);
+    text-shadow: 0px 0px 6px rgba(179, 161, 255, 0.85);
 }
 .home-widget:hover {
-    background: radial-gradient(circle at 35% 30%, #FF4A4F, #C4161C);
-    box-shadow: 0px 0px 14px rgba(255, 107, 107, 0.85);
+    background: radial-gradient(circle at 35% 30%, #8F72FF, #6A4DFF);
+    box-shadow: 0px 0px 14px rgba(155, 130, 255, 0.85);
 }
 .clock-widget .widget-container {
-    background: linear-gradient(to bottom, #FFDCC1, #FCCCA8);
-    box-shadow: 0px 0px 10px rgba(252, 204, 168, 0.35);
+    background: linear-gradient(to bottom, #99BFFF, #6FA4FF);
+    box-shadow: 0px 0px 10px rgba(111, 164, 255, 0.35);
 }
 .clock-widget .label {
     text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.35);
 }
 .taskbar-widget .app-container.foreground {
-    box-shadow: 0px 0px 8px rgba(252, 204, 168, 0.35);
+    box-shadow: 0px 0px 8px rgba(111, 164, 255, 0.35);
 }
 
 /* =====================================================================
    CONTROL CENTER as a station board (mint line, pairs with calendar and mixer)
    ===================================================================== */
 .control-center-menu {
-    background-color: rgba(6, 26, 36, 0.92);
-    border: 1px solid #1F4B58;
-    border-top: 5px solid #7FE0C8;
+    background-color: rgba(10, 15, 28, 0.92);
+    border: 1px solid #26304F;
+    border-top: 5px solid #86D6C0;
 }
 .control-center-menu .section.system-controls .button {
-    background-color: rgba(15, 51, 64, 0.95);
-    border: 1px solid rgba(169, 203, 193, 0.18);
-    color: #A9CBC1;
+    background-color: rgba(20, 28, 48, 0.95);
+    border: 1px solid rgba(163, 180, 224, 0.18);
+    color: #A3B4E0;
 }
 .control-center-menu .section.system-controls .button:hover {
-    background-color: rgba(29, 88, 102, 0.9);
-    color: #FCCCA8;
+    background-color: rgba(42, 55, 96, 0.9);
+    color: #6FA4FF;
 }
 .control-center-menu .section.system-controls .button.power {
-    background: radial-gradient(circle at 35% 30%, #D21E26, #9E1217);
-    border: 1px solid #9E1217;
-    color: #F4E6DA;
-    box-shadow: 0px 0px 8px rgba(229, 38, 45, 0.45);
+    background: radial-gradient(circle at 35% 30%, #7356F0, #4E36C9);
+    border: 1px solid #4E36C9;
+    color: #DFE6FB;
+    box-shadow: 0px 0px 8px rgba(124, 92, 255, 0.45);
 }
 .control-center-menu .section.quick-actions .button .icon {
-    background: linear-gradient(to bottom, rgba(21, 68, 83, 0.9), rgba(15, 51, 64, 0.9));
-    border: 1px solid rgba(169, 203, 193, 0.14);
+    background: linear-gradient(to bottom, rgba(30, 40, 66, 0.9), rgba(20, 28, 48, 0.9));
+    border: 1px solid rgba(163, 180, 224, 0.14);
     border-radius: 12px;
-    color: #A9CBC1;
+    color: #A3B4E0;
 }
 .control-center-menu .section.quick-actions .button .icon:hover {
-    background: rgba(29, 88, 102, 0.9);
-    border: 1px solid rgba(252, 204, 168, 0.45);
-    color: #FCCCA8;
+    background: rgba(42, 55, 96, 0.9);
+    border: 1px solid rgba(111, 164, 255, 0.45);
+    color: #6FA4FF;
 }
 .control-center-menu .section.quick-actions .button.active .icon,
 .control-center-menu .section.quick-actions .button.active .icon:hover {
-    background: linear-gradient(to bottom, #FFDCC1, #FCCCA8);
-    border: 1px solid #FCCCA8;
-    color: #061322;
-    box-shadow: 0px 0px 10px rgba(252, 204, 168, 0.45);
+    background: linear-gradient(to bottom, #99BFFF, #6FA4FF);
+    border: 1px solid #6FA4FF;
+    color: #070A14;
+    box-shadow: 0px 0px 10px rgba(111, 164, 255, 0.45);
 }
 .control-center-menu .section.quick-actions .button .title {
-    color: #A9CBC1;
+    color: #A3B4E0;
     font-size: 12px;
 }
 .control-center-menu .section.sliders .slider .icon,
 .control-center-menu .section.sliders .slider .value {
-    color: #A9CBC1;
+    color: #A3B4E0;
 }
 .control-center-menu .section.sliders .slider .slider-control::groove {
     height: 4px;
-    background: #1F4B58;
+    background: #26304F;
     border-radius: 2px;
 }
 .control-center-menu .section.sliders .slider .slider-control::sub-page {
-    background: #FF6B6B;
+    background: #9B82FF;
     border-radius: 2px;
 }
 .control-center-menu .section.sliders .slider .slider-control::handle {
-    background: #FCCCA8;
-    border: 2px solid #061A24;
+    background: #6FA4FF;
+    border: 2px solid #0A0F1C;
     width: 12px;
     height: 12px;
     margin: -6px 0;
@@ -2591,44 +2591,44 @@ which is 16 pixels same as the other sections. */
 /* power plan / mode as platforms: dark tile with a red bar on the left */
 .control-center-menu .section.power .plan-name,
 .control-center-menu .section.power .mode-name {
-    background: rgba(15, 51, 64, 0.95);
-    border: 1px solid rgba(169, 203, 193, 0.14);
-    border-left: 3px solid #FF6B6B;
+    background: rgba(20, 28, 48, 0.95);
+    border: 1px solid rgba(163, 180, 224, 0.14);
+    border-left: 3px solid #9B82FF;
     border-radius: 6px;
 }
 .control-center-menu .section.power .plan-name:hover,
 .control-center-menu .section.power .mode-name:hover {
-    background: rgba(29, 88, 102, 0.9);
+    background: rgba(42, 55, 96, 0.9);
 }
 .control-center-menu .section.power .plan-name .title,
 .control-center-menu .section.power .mode-name .title {
-    color: #A9CBC1;
+    color: #A3B4E0;
     font-weight: 400;
 }
 .control-center-menu .section.power .plan-name .subtext,
 .control-center-menu .section.power .mode-name .subtext,
 .control-center-menu .section.power .plan-name .icon,
 .control-center-menu .section.power .mode-name .icon {
-    color: #FCCCA8;
+    color: #6FA4FF;
 }
 .control-center-menu .section.media {
-    border-top: 1px solid #1F4B58;
+    border-top: 1px solid #26304F;
 }
 .control-center-menu .section.media .title {
-    color: #F4E6DA;
+    color: #DFE6FB;
 }
 .control-center-menu .section.media .subtext {
-    color: #7FA39A;
+    color: #7A8BBD;
 }
 .control-center-menu .section.media .button {
-    background: rgba(15, 51, 64, 0.95);
-    border: 1px solid rgba(169, 203, 193, 0.14);
-    color: #A9CBC1;
+    background: rgba(20, 28, 48, 0.95);
+    border: 1px solid rgba(163, 180, 224, 0.14);
+    color: #A3B4E0;
 }
 .control-center-menu .section.media .button.play {
-    background: linear-gradient(to bottom, #FFDCC1, #FCCCA8);
-    border: 1px solid #FCCCA8;
-    color: #061322;
+    background: linear-gradient(to bottom, #99BFFF, #6FA4FF);
+    border: 1px solid #6FA4FF;
+    color: #070A14;
 }
 /* same specificity as the .widget gradient above, so it has to come after it */
 .clock-widget,
@@ -2643,56 +2643,56 @@ which is 16 pixels same as the other sections. */
 }
 /* calendar: extended column with upcoming holidays, as a departures list */
 .clock-popup.calendar .extended-container {
-    border-left: 1px solid #1F4B58;
+    border-left: 1px solid #26304F;
     padding-left: 12px;
     margin-left: 8px;
 }
 .clock-popup.calendar .upcoming-events-header {
-    color: #FF6B6B;
+    color: #9B82FF;
     font-weight: 700;
     font-size: 12px;
     padding-bottom: 6px;
-    border-bottom: 1px solid #1F4B58;
+    border-bottom: 1px solid #26304F;
 }
 .clock-popup.calendar .upcoming-events-item {
-    color: #F4E6DA;
+    color: #DFE6FB;
     font-size: 12px;
     padding: 6px 0px;
-    border-bottom: 1px solid rgba(31, 75, 88, 0.6);
+    border-bottom: 1px solid rgba(38, 48, 79, 0.6);
 }
 .clock-popup.calendar .holiday-label {
-    color: #FF6B6B;
+    color: #9B82FF;
     font-size: 12px;
 }
-/* clock pill: same teal glass as the other pills, peach text as the accent */
+/* clock pill: same navy glass as the other pills, blue text as the accent */
 .clock-widget .widget-container {
-    background: linear-gradient(to bottom, rgba(21, 68, 83, 0.62), rgba(15, 51, 64, 0.50));
-    border: 1px solid rgba(252, 204, 168, 0.35);
+    background: linear-gradient(to bottom, rgba(30, 40, 66, 0.62), rgba(20, 28, 48, 0.50));
+    border: 1px solid rgba(111, 164, 255, 0.35);
     box-shadow: none;
 }
 .clock-widget .widget-container:hover {
-    background: rgba(29, 88, 102, 0.6);
-    border: 1px solid rgba(252, 204, 168, 0.7);
+    background: rgba(42, 55, 96, 0.6);
+    border: 1px solid rgba(111, 164, 255, 0.7);
 }
 .clock-widget .label {
-    color: #FCCCA8;
-    text-shadow: 0px 0px 6px rgba(252, 204, 168, 0.45);
+    color: #6FA4FF;
+    text-shadow: 0px 0px 6px rgba(111, 164, 255, 0.45);
 }
 /* alarm / timer buttons in the extended calendar */
 .clock-popup.calendar QPushButton {
-    background: rgba(15, 51, 64, 0.95);
-    border: 1px solid rgba(169, 203, 193, 0.14);
-    border-left: 3px solid #FCCCA8;
+    background: rgba(20, 28, 48, 0.95);
+    border: 1px solid rgba(163, 180, 224, 0.14);
+    border-left: 3px solid #6FA4FF;
     border-radius: 6px;
-    color: #F4E6DA;
+    color: #DFE6FB;
     font-size: 12px;
     padding: 2px 10px;
     min-height: 26px;
     max-height: 26px;
 }
 .clock-popup.calendar QPushButton:hover {
-    background: rgba(29, 88, 102, 0.9);
-    color: #FCCCA8;
+    background: rgba(42, 55, 96, 0.9);
+    color: #6FA4FF;
 }
 
 /* ---------- Calendar, compact version ----------
@@ -2729,10 +2729,10 @@ which is 16 pixels same as the other sections. */
 .clock-popup.calendar .extended-container {
     min-width: 270px;
 }
-/* today: a filled peach circle */
+/* today: a filled blue circle */
 .clock-popup.calendar .calendar-table::item:selected {
-    background-color: #FCCCA8;
-    color: #061322;
+    background-color: #6FA4FF;
+    color: #070A14;
     border-radius: 13px;
     font-weight: 700;
 }
@@ -2750,4 +2750,177 @@ which is 16 pixels same as the other sections. */
 .music-island .widget:hover,
 .system-island .widget:hover {
     border: none;
+}
+
+/* =====================================================================
+   FLOATING ISLANDS — no rail: every group floats on its own over the
+   wallpaper. Same navy glass and border on all of them; the accents are
+   the gradient 家, the long blue dot of the active desktop, the underline
+   of the focused app and the blue clock.
+   ===================================================================== */
+.yasb-bar {
+    background: transparent;
+    border: none;
+    padding: 0px 8px;
+}
+.widget,
+.apps-island,
+.clock-island,
+.systeminfo-grouper,
+.system-island,
+.music-island {
+    background: rgba(14, 20, 36, 0.86);
+    border: 1px solid #26304F;
+    border-radius: 12px;
+    margin: 6px 3px;
+    box-shadow: 0px 4px 12px rgba(5, 7, 15, 0.45);
+}
+/* the music island keeps no border: empty it must measure 0px (YASB grouper bug) */
+.music-island {
+    border: none;
+}
+.widget:hover {
+    background: rgba(26, 35, 56, 0.92);
+    border: 1px solid #33416E;
+}
+/* widgets inside an island drop their own pill */
+.apps-island .widget,
+.clock-island .widget,
+.systeminfo-grouper .widget,
+.system-island .widget,
+.music-island .widget {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    margin: 0px;
+}
+.apps-island .container,
+.clock-island .container,
+.systeminfo-grouper .container {
+    background: transparent;
+}
+
+/* 家: a square island in the ribbon → eye gradient (YASB turns linear-gradient into a Qt gradient) */
+.home-widget {
+    background: linear-gradient(to bottom right, #3D7BEB, #7C5CFF);
+    border: 1px solid #6A6CF5;
+    box-shadow: 0px 4px 12px rgba(111, 164, 255, 0.35);
+    padding: 0px 9px;
+}
+.home-widget:hover {
+    background: linear-gradient(to bottom right, #6FA4FF, #9B82FF);
+    border: 1px solid #B3A1FF;
+}
+.home-widget .icon {
+    color: #F2F5FE;
+    font-weight: 800;
+    text-shadow: none;
+}
+
+/* virtual desktops as dots; the active one stretches into a pill */
+.windows-desktops {
+    padding: 0px 10px;
+}
+.windows-desktops .widget-container {
+    background: transparent;
+}
+.windows-desktops .ws-btn {
+    min-width: 8px;
+    max-width: 8px;
+    min-height: 8px;
+    max-height: 8px;
+    padding: 0px;
+    margin: 0px 3px;
+    border: none;
+    border-radius: 4px;
+    background: #2A3760;
+}
+.windows-desktops .ws-btn:hover {
+    background: #5A6A99;
+}
+.windows-desktops .ws-btn.active {
+    min-width: 22px;
+    max-width: 22px;
+    background: #6FA4FF;
+}
+
+/* apps: icons, the focused one underlined, then the window's name */
+.apps-island {
+    padding: 0px 6px;
+}
+.apps-island .taskbar-widget {
+    padding: 0px 2px;
+}
+.apps-island .taskbar-widget .app-container {
+    margin: 4px 1px;
+    padding: 0px 6px;
+    border-radius: 8px;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+}
+.apps-island .taskbar-widget .app-container:hover {
+    background: rgba(42, 55, 96, 0.55);
+}
+.apps-island .taskbar-widget .app-container.foreground {
+    background: transparent;
+    border-bottom: 2px solid #6FA4FF;
+    border-radius: 0px;
+}
+.apps-island .active-window-widget {
+    padding: 0px 8px 0px 4px;
+}
+.apps-island .active-window-widget .label {
+    color: #A3B4E0;
+    font-size: 12px;
+    font-weight: 500;
+    text-shadow: none;
+}
+
+/* clock: kanji weekday in dim haze, then the time */
+.clock-island {
+    padding: 0px 8px;
+}
+.clock-island .clock-widget .widget-container,
+.clock-island .clock-widget .widget-container:hover {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 0px 2px;
+}
+.clock-island .clock-widget .label {
+    color: #DFE6FB;
+    font-size: 13px;
+    font-weight: 700;
+    text-shadow: none;
+}
+.clock-island .clock-jp .label {
+    color: #5A6A99;
+    font-weight: 500;
+}
+
+/* CPU and RAM in the terminal font, icons in the accents */
+.systeminfo-grouper {
+    padding: 0px 6px;
+}
+.systeminfo-grouper .label {
+    font-family: "M+1Code Nerd Font", "JetBrainsMono Nerd Font", var(--system-font);
+    font-size: 12px;
+    color: #A3B4E0;
+}
+.cpu-widget .widget-container .icon {
+    color: #6FA4FF;
+    padding-right: 4px;
+}
+.memory-widget .widget-container .icon {
+    color: #9B82FF;
+    padding-right: 4px;
+}
+
+/* system island: haze icons, the bell in violet */
+.system-island .icon {
+    color: #A3B4E0;
+}
+.system-island .notification-widget .icon {
+    color: #9B82FF;
 }

@@ -1,106 +1,196 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>New Tab</title>
 <style>
+  /* Bento grid on solid night navy: the new tab is its own place, not a window onto the wallpaper.
+     Same palette and fonts as the bar and the terminal. */
   :root {
-    --glass: rgba(8, 32, 43, 0.55);
-    --glass-hover: rgba(29, 88, 102, 0.6);
-    --border: rgba(127, 163, 154, 0.28);
-    --text: #F4E6DA;
-    --sage: #A9CBC1;
-    --peach: #FCCCA8;
-    --balloon: #FF6B6B;
-    --red: #9E1217;
+    --bg: #0A0F1C;
+    --tile: #111829;
+    --tile-2: #161F36;
+    --line: #232D4B;
+    --text: #DFE6FB;
+    --haze: #A3B4E0;
+    --dim: #5A6A99;
+    --ribbon: #6FA4FF;
+    --violet: #9B82FF;
+    --amber: #F0C48A;
+    --rose: #F07A8F;
+    --ui: "Rounded Mplus 1c", "M PLUS Rounded 1c", "Zen Kaku Gothic New", "Yu Gothic UI", "Segoe UI", sans-serif;
+    --mono: "M+1Code Nerd Font", "JetBrainsMono Nerd Font", "Cascadia Mono", Consolas, monospace;
+    --r: 22px;
   }
   * { box-sizing: border-box; }
-  html, body { height: 100%; margin: 0; overflow: hidden; }
+  html, body { height: 100%; margin: 0; }
   body {
-    background: #061A24; color: var(--text);
-    font-family: "Zen Kaku Gothic New", "Yu Gothic UI", "Segoe UI", sans-serif;
-  }
-  /* bg.jpg is the full-screen wallpaper as the desktop shows it, sharp at the top and
-     blurred lower; newtab.js moves it by the window position so it lines up with the desktop */
-  .bg { position: fixed; inset: 0; background: #061A24 url("bg.jpg") no-repeat; }
-  .glass {
-    background: var(--glass); border: 1px solid var(--border);
-    backdrop-filter: blur(18px); border-radius: 18px;
+    background: var(--bg); color: var(--text); font-family: var(--ui);
+    display: grid; place-items: center; overflow: hidden;
+    /* a faint dot grid and two soft glows in the corners, so the solid navy is not flat */
+    background-image:
+      radial-gradient(900px 600px at 0% 0%, rgba(111, 164, 255, .10), transparent 60%),
+      radial-gradient(900px 600px at 100% 100%, rgba(155, 130, 255, .10), transparent 60%),
+      radial-gradient(rgba(163, 180, 224, .10) 1px, transparent 1.2px);
+    background-size: auto, auto, 22px 22px;
   }
 
-  /* 家 button + folder menu, like the bar */
-  .home { position: fixed; top: 22px; left: 22px; z-index: 2; }
-  .home button {
-    width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--red);
-    background: var(--red); color: var(--text); font: inherit; font-weight: 700; font-size: 16px;
-    cursor: pointer; transition: background .15s, border-color .15s;
+  .bento {
+    width: min(1240px, 92vw);
+    display: grid; gap: 14px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 168px 214px 250px;
+    grid-template-areas:
+      "clock  clock  search search"
+      "clock  clock  wx     cal"
+      "art    links  links  air";
   }
-  .home button:hover { background: #E5262D; border-color: var(--peach); }
-  .menu { display: none; margin-top: 10px; padding: 6px; min-width: 190px; }
-  .menu.open { display: block; }
-  .menu a { display: block; padding: 9px 14px; border-radius: 10px; color: var(--text); text-decoration: none; font-size: 14px; }
-  .menu a:hover { background: var(--glass-hover); color: var(--peach); }
+  .tile {
+    position: relative; min-width: 0; overflow: hidden;
+    background: var(--tile); border: 1px solid var(--line); border-radius: var(--r);
+    padding: 20px 22px;
+    transition: border-color .2s;
+  }
+  .tile:hover { border-color: #33416E; }
+  .label {
+    font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--dim); display: flex; justify-content: space-between; align-items: center;
+  }
+  .label b { color: var(--violet); font-weight: 400; }
 
-  main {
-    position: relative; z-index: 1; height: 100%;
-    display: flex; align-items: center; justify-content: center;
-  }
-  /* one frosted teal panel holding everything; the wallpaper around it stays sharp */
-  .panel {
-    display: flex; flex-direction: column; align-items: center; gap: 22px;
-    padding: 44px 56px 40px; border-radius: 28px;
-    background: rgba(8, 32, 43, 0.45);
-    border: 1px solid rgba(169, 203, 193, 0.22);
-    backdrop-filter: blur(22px) saturate(1.15);
-    box-shadow: 0 20px 60px rgba(2, 10, 16, 0.45);
-  }
-  /* inside the panel the pieces are lighter glass, not a second frosted layer */
-  .panel .glass, .panel input, .panel .links a { backdrop-filter: none; background: rgba(6, 26, 36, 0.35); }
-  .clock { font-size: 104px; font-weight: 700; letter-spacing: 2px; line-height: 1; text-shadow: 0 4px 24px rgba(0,0,0,.35); }
-  .clock .sep { color: var(--balloon); }
-  .date { color: var(--peach); font-size: 18px; margin-top: -10px; }
+  /* ---- clock: the one loud tile */
+  .clock { grid-area: clock; display: flex; flex-direction: column; justify-content: space-between;
+    background: linear-gradient(160deg, #15203D 0%, var(--tile) 55%); }
+  .clock .time { font-size: 148px; font-weight: 800; line-height: .9; letter-spacing: -2px;
+    font-variant-numeric: tabular-nums; }
+  .clock .time .sep { background: linear-gradient(180deg, var(--ribbon), var(--violet));
+    -webkit-background-clip: text; background-clip: text; color: transparent; animation: blink 2s steps(1) infinite; }
+  @keyframes blink { 50% { opacity: .35; } }
+  .clock .greet { font-size: 22px; font-weight: 700; }
+  .clock .greet span { color: var(--ribbon); }
+  .clock .date { margin-top: 6px; color: var(--haze); font-size: 15px; }
+  .clock .jp { font-family: var(--mono); color: var(--dim); font-size: 13px; margin-top: 2px; }
+  .clock .bar { position: absolute; left: 0; right: 0; bottom: 0; height: 4px; background: var(--line); }
+  .clock .bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--ribbon), var(--violet)); }
 
-  .weather { display: flex; align-items: center; gap: 14px; padding: 10px 20px; font-size: 15px; }
-  .weather .temp { font-size: 26px; font-weight: 700; }
-  .weather .meta { color: var(--sage); }
-  .weather .range { color: var(--peach); }
+  /* ---- search: looks like a prompt */
+  .search { grid-area: search; display: flex; flex-direction: column; justify-content: space-between; }
+  .search form { display: flex; align-items: center; gap: 12px; font-family: var(--mono);
+    background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 0 16px; }
+  .search form:focus-within { border-color: var(--ribbon); box-shadow: 0 0 0 4px rgba(111, 164, 255, .12); }
+  .search .ps { color: var(--violet); font-size: 18px; }
+  .search input { flex: 1; min-width: 0; background: none; border: 0; outline: 0; color: var(--text);
+    font: 17px var(--mono); padding: 15px 0; }
+  .search input::placeholder { color: var(--dim); }
+  .search kbd { font: 11px var(--mono); color: var(--dim); border: 1px solid var(--line); border-radius: 6px; padding: 2px 7px; }
+  .search .hint { font-family: var(--mono); font-size: 12px; color: var(--dim); }
+  .search .hint em { font-style: normal; color: var(--amber); }
 
-  form { width: min(580px, 90vw); }
-  input {
-    width: 100%; padding: 15px 24px; font: inherit; font-size: 17px; color: var(--text);
-    background: var(--glass); border: 1px solid var(--border); border-radius: 999px; outline: none;
-    backdrop-filter: blur(18px);
-  }
-  input::placeholder { color: var(--sage); opacity: .75; }
-  input:focus { border-color: var(--peach); }
+  /* ---- weather */
+  .wx { grid-area: wx; display: flex; flex-direction: column; justify-content: space-between; }
+  .wx .now { display: flex; align-items: center; gap: 12px; }
+  .wx .icon { font-size: 40px; line-height: 1; }
+  .wx .temp { font-size: 54px; font-weight: 800; line-height: 1; }
+  .wx .desc { color: var(--haze); font-size: 14px; }
+  .wx .range { font-family: var(--mono); font-size: 13px; color: var(--dim); }
+  .wx .range .lo { color: var(--ribbon); } .wx .range .hi { color: var(--amber); }
 
-  .links { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
-  .links a {
-    display: flex; align-items: center; gap: 8px; padding: 9px 16px; border-radius: 999px;
-    background: var(--glass); border: 1px solid var(--border); backdrop-filter: blur(18px);
-    color: var(--text); text-decoration: none; font-size: 14px; transition: background .15s, border-color .15s;
+  /* ---- calendar */
+  .cal { grid-area: cal; }
+  .cal table { width: 100%; table-layout: fixed; border-collapse: collapse; margin-top: 10px; font-family: var(--mono); font-size: 12px;
+    font-variant-numeric: tabular-nums; }
+  .cal th { color: var(--dim); font-weight: 400; padding-bottom: 4px; }
+  .cal td { text-align: center; height: 25px; color: var(--haze); }
+  .cal td.out { color: transparent; }
+  .cal td.we { color: var(--dim); }
+  .cal td.today span { display: inline-block; min-width: 22px; border-radius: 7px; background: var(--ribbon); color: #070A14; font-weight: 700; }
+
+  /* ---- art: the fastfetch girl, drawn in light lines */
+  .art { grid-area: art; padding: 0; background: var(--tile-2); }
+  .art img { position: absolute; right: -6%; bottom: -10%; width: 112%; opacity: .9; }
+  .art .label { position: absolute; top: 0; left: 0; right: 0; z-index: 1; padding: 18px 20px 28px;
+    background: linear-gradient(var(--tile-2) 45%, transparent); }
+
+  /* ---- links */
+  .links { grid-area: links; display: flex; flex-direction: column; gap: 12px; }
+  .links nav { flex: 1; display: flex; flex-wrap: wrap; gap: 10px; }
+  .links a { flex: 1 1 40%; display: flex; align-items: center; gap: 10px; padding: 0 14px; border-radius: 14px;
+    background: var(--bg); border: 1px solid var(--line); color: var(--text); text-decoration: none; font-size: 14px;
+    transition: border-color .15s, background .15s, color .15s; }
+  .links a:hover { border-color: var(--ribbon); background: #0E1730; color: var(--ribbon); }
+  .links a img { width: 18px; height: 18px; border-radius: 4px; }
+
+  /* ---- airing today, from AniList */
+  .air { grid-area: air; display: flex; flex-direction: column; gap: 8px; }
+  .air ul { list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .air li a { display: grid; grid-template-columns: 34px 1fr; gap: 10px; align-items: center;
+    color: var(--text); text-decoration: none; padding: 3px; border-radius: 10px; }
+  .air li a:hover { background: var(--tile-2); }
+  .air li a:hover .t { color: var(--ribbon); }
+  .air img { width: 34px; height: 48px; object-fit: cover; border-radius: 6px; background: var(--line); }
+  .air li a > div { min-width: 0; }
+  .air .t { font-size: 13px; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .air .m { font-family: var(--mono); font-size: 11px; color: var(--dim); }
+  .air .m b { color: var(--amber); font-weight: 400; }
+  .air .m i { font-style: normal; color: var(--violet); }
+  .air .empty { font-family: var(--mono); font-size: 12px; color: var(--dim); }
+
+  @media (max-width: 900px) {
+    body { overflow: auto; place-items: start center; padding: 24px 0; }
+    .bento { grid-template-columns: 1fr 1fr; grid-template-rows: auto;
+      grid-template-areas: "clock clock" "search search" "wx cal" "links links" "art air"; }
+    .clock .time { font-size: 96px; }
+    .tile { min-height: 170px; }
   }
-  .links a:hover { background: var(--glass-hover); border-color: var(--peach); color: var(--peach); }
-  .links img { width: 16px; height: 16px; }
+  @media (prefers-reduced-motion: reduce) { .clock .time .sep { animation: none; } }
 </style>
 </head>
 <body>
-  <div class="bg"></div>
+  <main class="bento">
+    <section class="tile clock">
+      <div class="label"><span>night balcony</span><b id="dayPct"></b></div>
+      <div class="time" id="time">00<span class="sep">:</span>00</div>
+      <div>
+        <div class="greet" id="greet"></div>
+        <div class="date" id="date"></div>
+        <div class="jp" id="jp"></div>
+      </div>
+      <div class="bar"><i id="dayBar"></i></div>
+    </section>
 
-  <div class="home">
-    <button id="homeBtn" title="Carpetas">家</button>
-    <div class="menu glass" id="menu"></div>
-  </div>
-
-  <main>
-    <section class="panel">
-      <div class="clock" id="clock">00<span class="sep">:</span>00</div>
-      <div class="date" id="date"></div>
-      <div class="weather glass" id="weather" hidden></div>
-      <form action="https://www.google.com/search">
-        <input name="q" placeholder="Buscar…" autofocus autocomplete="off">
+    <section class="tile search">
+      <div class="label"><span>search</span><kbd>/</kbd></div>
+      <form id="form" autocomplete="off">
+        <span class="ps">❯</span>
+        <input id="q" placeholder="google, or !yt !gh !al !w …" spellcheck="false">
       </form>
-      <nav class="links" id="links"></nav>
+      <div class="hint"><em>!yt</em> youtube · <em>!gh</em> github · <em>!al</em> anilist · <em>!w</em> wikipedia</div>
+    </section>
+
+    <section class="tile wx" id="wx">
+      <div class="label"><span>weather</span><b id="wxCity"></b></div>
+      <div class="now"><span class="icon" id="wxIcon">·</span><span class="temp" id="wxTemp">--°</span></div>
+      <div><div class="desc" id="wxDesc">loading…</div><div class="range" id="wxRange"></div></div>
+    </section>
+
+    <section class="tile cal">
+      <div class="label"><span id="calMonth"></span><b id="calYear"></b></div>
+      <table id="cal"></table>
+    </section>
+
+    <section class="tile art">
+      <div class="label"><span>今夜 · tonight</span><b>✦</b></div>
+      <img src="art.png" alt="">
+    </section>
+
+    <section class="tile links">
+      <div class="label"><span>shortcuts</span><b id="linkCount"></b></div>
+      <nav id="links"></nav>
+    </section>
+
+    <section class="tile air">
+      <div class="label"><span id="airTitle">airing today</span><b>anilist</b></div>
+      <ul id="air"><li class="empty">loading…</li></ul>
     </section>
   </main>
 

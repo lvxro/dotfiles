@@ -1,0 +1,60 @@
+{
+    "profiles": {
+        "defaults": {
+            "colorScheme": "Night Balcony",
+            "font": {
+                "face": "M+1Code Nerd Font",
+                "size": 12,
+                "cellWidth": "0.62",
+                "cellHeight": "1.3"
+            },
+            "opacity": 85,
+            "useAcrylic": true,
+            "padding": "14, 10",
+            "cursorShape": "bar"
+        }
+    },
+    "schemes": [
+        {
+            "name": "Night Balcony",
+            "background": "#0E1424",
+            "foreground": "#DFE6FB",
+            "cursorColor": "#6FA4FF",
+            "selectionBackground": "#2A3760",
+            "black": "#1A2338",
+            "red": "#F07A8F",
+            "green": "#86D6C0",
+            "yellow": "#F0C48A",
+            "blue": "#6FA4FF",
+            "purple": "#9B82FF",
+            "cyan": "#5EC8F0",
+            "white": "#A3B4E0",
+            "brightBlack": "#5A6A99",
+            "brightRed": "#F59AAB",
+            "brightGreen": "#A8E4D3",
+            "brightYellow": "#F6D6AC",
+            "brightBlue": "#9DC2FF",
+            "brightPurple": "#B9A6FF",
+            "brightCyan": "#8ADAF5",
+            "brightWhite": "#F2F5FE"
+        }
+    ],
+    "themes": [
+        {
+            "name": "Night Balcony",
+            "tab": {
+                "background": "#0E1424FF",
+                "unfocusedBackground": "#0A0E1AFF",
+                "showCloseButton": "hover"
+            },
+            "tabRow": {
+                "background": "#0A0E1AFF",
+                "unfocusedBackground": "#0A0E1AFF"
+            },
+            "window": {
+                "applicationTheme": "dark"
+            }
+        }
+    ],
+    "theme": "Night Balcony"
+}

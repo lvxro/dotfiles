@@ -27,7 +27,7 @@ bars:
       hide_on_fullscreen: true   # se esconde en juegos / videos en pantalla completa
     dimensions:
       width: 100%
-      height: 40        # full-width rail; the pills sit inside it (see "Rail" in styles.css)
+      height: 44        # no rail: each group is a floating island (see "Floating islands" in styles.css)
     padding:
       top: 0
       left: 0
@@ -36,14 +36,42 @@ bars:
     widgets:
       left:
       - home
-      - taskbar          # open apps, replaces the hidden Windows taskbar
+      - desktops          # virtual desktops as dots; the active one is a longer pill
+      - apps-island       # open apps + the focused window's name
       center:
-      - clock
+      - clock-island      # weekday in kanji + clock
       right:
+      - systeminfo-grouper  # CPU + RAM
       # Islands: a grouper's widgets must NOT also be listed here
       - music-island      # media + visualizador
       - system-island     # clima, tray, volumen, notificaciones, control center
 widgets:
+  apps-island:
+    type: "yasb.grouper.GrouperWidget"
+    options:
+      class_name: "apps-island"
+      widgets: ["taskbar", "active_window"]
+  clock-island:
+    type: "yasb.grouper.GrouperWidget"
+    options:
+      class_name: "clock-island"
+      widgets: ["clock_jp", "clock"]
+  desktops:
+    type: "yasb.windows_desktops.WorkspaceWidget"
+    options:
+      label_workspace_btn: ""          # empty buttons, drawn as dots in styles.css
+      label_workspace_active_btn: ""
+  clock_jp:
+    type: yasb.clock.ClockWidget
+    options:
+      label: '{%a}'                   # 水 for Wednesday
+      label_alt: '{%A}'
+      locale: "ja_JP"
+      class_name: "clock-jp"
+      tooltip: false
+      callbacks:
+        on_left: do_nothing
+        on_right: toggle_label
   music-island:
     type: "yasb.grouper.GrouperWidget"
     options:
@@ -85,11 +113,11 @@ widgets:
         icon_size: 64
         show_hourly_forecast: true
         time_format: "24h"
-        current_line_color: "#FF6B6B"
+        current_line_color: "#9B82FF"
         hourly_gradient:
           enabled: true
-          top_color: "#FCCCA8"
-          bottom_color: "#173C49"
+          top_color: "#6FA4FF"
+          bottom_color: "#1A2338"
         hourly_forecast_buttons:
           enabled: true
           default_view: "temperature"
@@ -133,7 +161,7 @@ widgets:
         show_years: true
         show_holidays: true
         country_code: "AR"
-        holiday_color: "#FF6B6B"
+        holiday_color: "#F07A8F"
         show_week_numbers: true
       callbacks:
         on_left: do_nothing       # clock only, no calendar popup
@@ -393,8 +421,8 @@ widgets:
   media:
     type: "yasb.media.MediaWidget"
     options:
-      # artist and separator in dim sage, lighter weight; needs scrolling_label off (QLabel accepts HTML)
-      label: "{title}<span style='color:#7FA39A; font-weight:400'>{s}{artist}</span>"
+      # artist and separator in dim haze, lighter weight; needs scrolling_label off (QLabel accepts HTML)
+      label: "{title}<span style='color:#7A8BBD; font-weight:400'>{s}{artist}</span>"
       label_alt: "{artist}"
       separator: " · "
       hide_empty: true
@@ -564,15 +592,7 @@ widgets:
     type: "yasb.grouper.GrouperWidget"
     options:
       class_name: "systeminfo-grouper"
-      widgets: [
-        "memory",
-        "cpu",
-      ]
-      collapse_options:
-        enabled: true
-        expanded_label: "\uf053"
-        collapsed_label: "\uf4bc"
-        label_position: "right"
+      widgets: ["cpu", "memory"]
   control_center:
     type: "yasb.control_center.ControlCenterWidget"
     options:

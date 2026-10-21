@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Red Balloon New Tab",
-  "description": "Clock, search and shortcuts in the Red Balloon palette.",
+  "name": "Night Balcony New Tab",
+  "description": "Clock, search and shortcuts in the Night Balcony palette.",
   "version": "1.0",
   "chrome_url_overrides": {
     "newtab": "newtab.html"

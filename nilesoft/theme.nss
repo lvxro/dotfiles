@@ -1,4 +1,4 @@
-// Red Balloon — Nilesoft Shell theme
+// Night Balcony — Nilesoft Shell theme
 // Copy to "C:\Program Files\Nilesoft Shell\imports\theme.nss"
 theme
 {
@@ -6,21 +6,21 @@ theme
 	dark=true
 	font
 	{
-		name="Zen Kaku Gothic New"
+		name="Rounded Mplus 1c"
 		size=13
 		weight=5
 	}
 	background
 	{
-		color=#08202B
+		color=#0E1424
 		opacity=88
-		effect=[3, #08202B, 70]
+		effect=[3, #0E1424, 70]
 	}
 	border
 	{
 		enabled=true
 		size=1
-		color=#1F4B58
+		color=#26304F
 		radius=8
 	}
 	shadow
@@ -36,40 +36,40 @@ theme
 		radius=3
 		text
 		{
-			normal=#F4E6DA
-			normal.disabled=#5E8285
-			select=#FCCCA8
-			select.disabled=#5E8285
+			normal=#DFE6FB
+			normal.disabled=#5A6A99
+			select=#6FA4FF
+			select.disabled=#5A6A99
 		}
 		back
 		{
-			select=#1D5866
-			select.disabled=#0F3340
+			select=#2A3760
+			select.disabled=#141C30
 		}
 		padding = [8, 8, 4, 4]
 		margin = [4, 2]
 	}
 	separator
 	{
-		color=#1F4B58
+		color=#26304F
 		opacity=100
 		margin = [10, 6]
 	}
 	symbol
 	{
-		normal=#A9CBC1
-		select=#FCCCA8
-		normal.disabled=#5E8285
-		select.disabled=#5E8285
+		normal=#A3B4E0
+		select=#6FA4FF
+		normal.disabled=#5A6A99
+		select.disabled=#5A6A99
 		checkmark
 		{
-			normal=#FF6B6B
-			select=#FF6B6B
+			normal=#9B82FF
+			select=#9B82FF
 		}
 	}
 	image
 	{
-		color=[#FCCCA8, #A9CBC1, #FF6B6B]
+		color=[#6FA4FF, #A3B4E0, #9B82FF]
 		align=2
 	}
 }

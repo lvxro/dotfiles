@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Installs the Red Balloon rice: copies every config in this repo to where its app expects it.
+    Installs the Night Balcony rice: copies every config in this repo to where its app expects it.
 
 .DESCRIPTION
     Run it from the repo root (ideally cloned to %USERPROFILE%\.config\yasb).
@@ -49,8 +49,8 @@ if (Step 'yasb') {
 # ---------------------------------------------------------------- Wallpaper
 if (Step 'wallpaper') {
     Say 'Wallpaper' 'Cyan'
-    $wp = Join-Path $Home_ 'Pictures\wallpapers\red-balloon.jpg'
-    Put 'wallpaper\red-balloon.jpg' $wp
+    $wp = Join-Path $Home_ 'Pictures\wallpapers\night-balcony.jpg'
+    Put 'wallpaper\night-balcony.jpg' $wp
     if (-not $DryRun) {
         Add-Type -Namespace RB -Name Wp -MemberDefinition '[DllImport("user32.dll", CharSet=CharSet.Unicode)] public static extern int SystemParametersInfo(int a, int b, string c, int d);'
         [RB.Wp]::SystemParametersInfo(20, 0, $wp, 3) | Out-Null
@@ -62,7 +62,8 @@ if (Step 'wallpaper') {
 if (Step 'accent') {
     Say 'Accent color' 'Cyan'
     if ($DryRun) { Say '  would import windows\accent.reg (sign out afterwards)' 'DarkCyan' }
-    else { reg import (Join-Path $Repo 'windows\accent.reg') 2>$null | Out-Null; Say '  imported; apply it from Settings > Colors or sign out' 'Green' }
+    # reg prints its success message to stderr, which Windows PowerShell turns into a terminating error under Stop
+    else { cmd /c "reg import `"$(Join-Path $Repo 'windows\accent.reg')`" >nul 2>&1"; Say '  imported; apply it from Settings > Colors or sign out' 'Green' }
 }
 
 # ---------------------------------------------------------------- Windows Terminal
@@ -71,18 +72,19 @@ if (Step 'terminal') {
     $wt = Get-ChildItem "$env:LOCALAPPDATA\Packages" -Directory -Filter 'Microsoft.WindowsTerminal*' -ErrorAction SilentlyContinue |
           ForEach-Object { Join-Path $_.FullName 'LocalState\settings.json' } | Where-Object { Test-Path $_ } | Select-Object -First 1
     if (-not $wt) { Skip 'Windows Terminal settings not found' }
-    elseif ($DryRun) { Say "  would merge terminal\red-balloon.json into $wt" 'DarkCyan' }
+    elseif ($DryRun) { Say "  would merge terminal\night-balcony.json into $wt" 'DarkCyan' }
     else {
         Copy-Item $wt "$wt.bak" -Force
         $s = Get-Content $wt -Raw | ConvertFrom-Json
-        $f = Get-Content (Join-Path $Repo 'terminal\red-balloon.json') -Raw | ConvertFrom-Json
+        $f = Get-Content (Join-Path $Repo 'terminal\night-balcony.json') -Raw | ConvertFrom-Json
         foreach ($p in $f.profiles.defaults.PSObject.Properties) {
             $s.profiles.defaults | Add-Member -NotePropertyName $p.Name -NotePropertyValue $p.Value -Force
         }
-        $s.schemes = @($s.schemes | Where-Object { $_.name -ne 'Red Balloon' }) + $f.schemes
-        $themes = if ($s.PSObject.Properties['themes']) { @($s.themes | Where-Object { $_.name -ne 'Red Balloon' }) } else { @() }
+        $s.schemes = @($s.schemes | Where-Object { $_.name -ne 'Night Balcony' }) + $f.schemes
+        # @() outside the if: an if statement unrolls a one-item array into a bare object
+        $themes = @(if ($s.PSObject.Properties['themes']) { $s.themes | Where-Object { $_.name -ne 'Night Balcony' } })
         $s | Add-Member -NotePropertyName themes -NotePropertyValue ($themes + $f.themes) -Force
-        $s | Add-Member -NotePropertyName theme -NotePropertyValue 'Red Balloon' -Force
+        $s | Add-Member -NotePropertyName theme -NotePropertyValue 'Night Balcony' -Force
         $s | ConvertTo-Json -Depth 20 | Set-Content $wt -Encoding UTF8
         Say "  merged scheme, theme and defaults (backup: settings.json.bak)" 'Green'
     }
@@ -91,16 +93,26 @@ if (Step 'terminal') {
 # ---------------------------------------------------------------- PowerShell prompt + fastfetch
 if (Step 'shell') {
     Say 'PowerShell and fastfetch' 'Cyan'
-    Put 'powershell\prompt.ps1'         "$Home_\.config\red-balloon\prompt.ps1"
-    Put 'fastfetch\red-balloon.jsonc'   "$Home_\.config\fastfetch\red-balloon.jsonc"
+    Put 'powershell\prompt.ps1'         "$Home_\.config\night-balcony\prompt.ps1"
+    Put 'fastfetch\night-balcony.jsonc'   "$Home_\.config\fastfetch\night-balcony.jsonc"
     Put 'fastfetch\logo.png'            "$Home_\.config\fastfetch\logo.png"
-    $marker = '# >>> red-balloon'
+    $marker = '# >>> night-balcony'
+    # drop the snippet left by the previous theme, so the prompt is not loaded twice
+    if ((Test-Path $PROFILE) -and (Select-String -Path $PROFILE -SimpleMatch '# >>> red-balloon' -Quiet)) {
+        if ($DryRun) { Say '  would remove the old red-balloon snippet from the profile' 'DarkCyan' }
+        else {
+            Copy-Item $PROFILE "$PROFILE.bak" -Force
+            $old = (Get-Content $PROFILE -Raw) -replace '(?s)\r?\n?# >>> red-balloon.*?# <<< red-balloon\r?\n?', "`r`n"
+            Set-Content $PROFILE $old.TrimEnd() -Encoding UTF8
+            Say '  removed the old red-balloon snippet (backup: profile .bak)' 'Green'
+        }
+    }
     if ((Test-Path $PROFILE) -and (Select-String -Path $PROFILE -SimpleMatch $marker -Quiet)) { Say '  profile already has the snippet' 'Green' }
     elseif ($DryRun) { Say "  would append powershell\profile.ps1 to $PROFILE" 'DarkCyan' }
     else {
         New-Item -ItemType Directory -Force (Split-Path $PROFILE) | Out-Null
         $body = (Get-Content (Join-Path $Repo 'powershell\profile.ps1') | Where-Object { $_ -notmatch '^# Add to' }) -join "`r`n"
-        Add-Content $PROFILE "`r`n$marker`r`n$body`r`n# <<< red-balloon"
+        Add-Content $PROFILE "`r`n$marker`r`n$body`r`n# <<< night-balcony"
         Say "  appended snippet to $PROFILE" 'Green'
     }
     if (-not (Get-Command fastfetch -ErrorAction SilentlyContinue)) { Say '  note: fastfetch is not installed (winget install fastfetch)' 'Yellow' }
@@ -115,13 +127,13 @@ if (Step 'btop') {
     if (-not $btop) { Skip 'btop4win not installed (winget install aristocratos.btop4win)' }
     else {
         $dir = $btop.DirectoryName
-        Put 'btop\red-balloon.theme' "$dir\themes\red-balloon.theme"
+        Put 'btop\night-balcony.theme' "$dir\themes\night-balcony.theme"
         $conf = Join-Path $dir 'btop.conf'
         if ($DryRun) { Say "  would set color_theme in $conf" 'DarkCyan' }
         elseif (Test-Path $conf) {
-            (Get-Content $conf) -replace '^color_theme\s*=.*$', 'color_theme = "red-balloon"' | Set-Content $conf
-            Say '  set color_theme = red-balloon' 'Green'
-        } else { Say '  open btop once, then pick red-balloon in Options > Color theme' 'Yellow' }
+            (Get-Content $conf) -replace '^color_theme\s*=.*$', 'color_theme = "night-balcony"' | Set-Content $conf
+            Say '  set color_theme = night-balcony' 'Green'
+        } else { Say '  open btop once, then pick night-balcony in Options > Color theme' 'Yellow' }
     }
 }
 
@@ -154,7 +166,7 @@ if (Step 'discord') {
     $any = $false
     foreach ($c in 'Equicord', 'Vencord', 'BetterDiscord') {
         $t = Join-Path $env:APPDATA "$c\themes"
-        if (Test-Path $t) { Put 'discord\midnight-red-balloon.theme.css' "$t\midnight-red-balloon.theme.css"; $any = $true }
+        if (Test-Path $t) { Put 'discord\midnight-balcony.theme.css' "$t\midnight-balcony.theme.css"; $any = $true }
     }
     if ($any) { Say '  enable it in Settings > Themes' 'Yellow' } else { Skip 'no Equicord, Vencord or BetterDiscord found' }
 }
@@ -185,8 +197,8 @@ if (Step 'flow') {
     $fl = Join-Path $env:APPDATA 'FlowLauncher'
     if (-not (Test-Path $fl)) { Skip 'Flow Launcher not installed (winget install Flow-Launcher.Flow-Launcher)' }
     else {
-        Put 'flow-launcher\Red Balloon.xaml' "$fl\Themes\Red Balloon.xaml"
-        Say '  pick Red Balloon in Flow settings > Appearance (Alt+Space opens it)' 'Yellow'
+        Put 'flow-launcher\Night Balcony.xaml' "$fl\Themes\Night Balcony.xaml"
+        Say '  pick Night Balcony in Flow settings > Appearance (Alt+Space opens it)' 'Yellow'
     }
 }
 if (Step 'borders') {
@@ -200,28 +212,30 @@ if (Step 'borders') {
 # ---------------------------------------------------------------- Browser, VS Code, ZapFast
 if (Step 'browser') {
     Say 'Browser theme' 'Cyan'
+    # Chromium keeps a compiled copy of the theme next to it; drop it so the new colors are rebuilt
+    $pak = "$Home_\.config\helium-theme\Cached Theme.pak"
+    if ((Test-Path $pak) -and -not $DryRun) { Remove-Item $pak -Force }
     Put 'helium\manifest.json'   "$Home_\.config\helium-theme\manifest.json"
-    Put 'helium\images\ntp.png'  "$Home_\.config\helium-theme\images\ntp.png"
-    Put 'helium\images\frame.png' "$Home_\.config\helium-theme\images\frame.png"
     $nt = "$Home_\.config\helium-newtab"
-    foreach ($n in 'manifest.json', 'newtab.html', 'newtab.js', 'config.example.js', 'bg.jpg') { Put "helium-newtab\$n" "$nt\$n" }
+    foreach ($n in 'manifest.json', 'newtab.html', 'newtab.js', 'config.example.js', 'art.png') { Put "helium-newtab\$n" "$nt\$n" }
     if (-not (Test-Path "$nt\config.js")) {
         if ($DryRun) { Say '  would create config.js from config.example.js' 'DarkCyan' }
         else { (Get-Content "$nt\config.example.js" -Raw) -replace 'C:\\\\Users\\\\YOU', ("C:\\Users\\" + $env:USERNAME) | Set-Content "$nt\config.js"; Say '  created config.js: set your weather city there' 'Yellow' }
     }
-    Say '  load both from chrome://extensions > Load unpacked: .config\helium-theme and .config\helium-newtab' 'Yellow'
+    Say '  load both from chrome://extensions > Load unpacked (or press Reload on each): .config\helium-theme and .config\helium-newtab' 'Yellow'
 }
 if (Step 'vscode') {
     Say 'VS Code' 'Cyan'
     $code = Get-Command code -ErrorAction SilentlyContinue
     if (-not $code) { Skip 'code CLI not found' }
-    elseif ($DryRun) { Say '  would install vscode\red-balloon.vsix' 'DarkCyan' }
-    else { & $code.Source --install-extension (Join-Path $Repo 'vscode\red-balloon.vsix') --force 2>$null | Out-Null; Say '  installed; pick Red Balloon in Color Theme' 'Green' }
+    elseif ($DryRun) { Say '  would install vscode\night-balcony.vsix' 'DarkCyan' }
+    # through cmd: Node's deprecation warnings on stderr would stop the script under Stop
+    else { cmd /c "`"$($code.Source)`" --install-extension `"$(Join-Path $Repo 'vscode\night-balcony.vsix')`" --force >nul 2>&1"; Say '  installed; pick Night Balcony in Color Theme' 'Green' }
 }
 if (Step 'zapfast') {
     Say 'ZapFast' 'Cyan'
     $z = Join-Path $env:APPDATA 'paolino\zapfast\config\themes'
-    if (Test-Path $z) { Put 'zapfast\red-balloon.json' "$z\red-balloon.json"; Put 'zapfast\red-balloon-day.json' "$z\red-balloon-day.json" }
+    if (Test-Path $z) { Put 'zapfast\night-balcony.json' "$z\night-balcony.json"; Put 'zapfast\night-balcony-day.json' "$z\night-balcony-day.json" }
     else { Skip 'ZapFast not installed' }
 }
 

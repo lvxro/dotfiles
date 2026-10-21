@@ -1,0 +1,57 @@
+# Night Balcony — btop / btop4win theme
+# night navy, moonlight, the blue of her ribbon and the violet of her eyes
+
+theme[main_bg]="#0E1424"
+theme[main_fg]="#DFE6FB"
+theme[title]="#6FA4FF"
+theme[hi_fg]="#9B82FF"
+theme[selected_bg]="#2A3760"
+theme[selected_fg]="#F2F5FE"
+theme[inactive_fg]="#5A6A99"
+theme[graph_text]="#A3B4E0"
+theme[meter_bg]="#1A2338"
+theme[proc_misc]="#86D6C0"
+
+# box outlines
+theme[cpu_box]="#26304F"
+theme[mem_box]="#26304F"
+theme[net_box]="#26304F"
+theme[proc_box]="#26304F"
+theme[div_line]="#26304F"
+
+# gradients: sea glass -> ribbon blue -> rose as load rises
+theme[temp_start]="#86D6C0"
+theme[temp_mid]="#6FA4FF"
+theme[temp_end]="#F07A8F"
+
+theme[cpu_start]="#86D6C0"
+theme[cpu_mid]="#6FA4FF"
+theme[cpu_end]="#F07A8F"
+
+theme[free_start]="#1A2338"
+theme[free_mid]="#5DBFA5"
+theme[free_end]="#86D6C0"
+
+theme[cached_start]="#1A2338"
+theme[cached_mid]="#7B9BE6"
+theme[cached_end]="#A9BDF0"
+
+theme[available_start]="#1A2338"
+theme[available_mid]="#F0C48A"
+theme[available_end]="#6FA4FF"
+
+theme[used_start]="#4A2233"
+theme[used_mid]="#D9607A"
+theme[used_end]="#F07A8F"
+
+theme[download_start]="#2B3762"
+theme[download_mid]="#7B9BE6"
+theme[download_end]="#A9BDF0"
+
+theme[upload_start]="#2E2650"
+theme[upload_mid]="#B9A6FF"
+theme[upload_end]="#D4C8FF"
+
+theme[process_start]="#86D6C0"
+theme[process_mid]="#6FA4FF"
+theme[process_end]="#9B82FF"

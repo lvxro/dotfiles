@@ -1,6 +1,6 @@
 /**
- * @name midnight · Red Balloon
- * @description refact0r's midnight theme recolored with the Red Balloon palette: night teal, peach and the red of the balloons.
+ * @name midnight · Night Balcony
+ * @description refact0r's midnight theme recolored with the Night Balcony palette: night navy, the blue of her ribbon and the violet of her eyes.
  * @author lvxro (theme by refact0r)
  * @version 2.1.1
  * @website https://github.com/lvxro/dotfiles
@@ -12,8 +12,8 @@
 
 body {
     /* font options */
-    --font: 'Zen Kaku Gothic New'; /* same font as the YASB bar */
-    --code-font: 'JetBrainsMono Nerd Font';
+    --font: 'Rounded Mplus 1c', 'M PLUS Rounded 1c', 'Zen Kaku Gothic New'; /* same font as the YASB bar */
+    --code-font: 'M+1Code Nerd Font', 'JetBrainsMono Nerd Font';
     font-weight: 400;
 
     /* sizes */
@@ -46,7 +46,7 @@ body {
     --custom-dms-background: color;
     --dms-background-image-url: url('');
     --dms-background-image-size: cover;
-    --dms-background-color: linear-gradient(70deg, #0E3A47, #C4161C); /* dusk teal into balloon red */
+    --dms-background-color: linear-gradient(70deg, #1B2440, #6A4DFF); /* dusk navy into eye violet */
 
     /* background image options */
     --background-image: off;
@@ -67,37 +67,37 @@ body {
     --small-user-panel: on;
 }
 
-/* color options — Red Balloon palette */
+/* color options — Night Balcony palette */
 :root {
     --colors: on;
 
     /* text colors */
-    --text-0: #061322;  /* text on peach buttons */
-    --text-1: #FBF4EE;  /* paper white */
-    --text-2: #F4E6DA;  /* cream: headings */
-    --text-3: #C9D9D3;  /* normal text: light sage */
-    --text-4: #6E8E89;  /* icons and channels */
-    --text-5: #3E5F66;  /* muted channels, timestamps */
+    --text-0: #070A14;  /* text on blue buttons */
+    --text-1: #F2F5FE;  /* paper white */
+    --text-2: #DFE6FB;  /* moonlight: headings */
+    --text-3: #BFCAEA;  /* normal text: light haze */
+    --text-4: #6B7BA8;  /* icons and channels */
+    --text-5: #3D4977;  /* muted channels, timestamps */
 
     /* background and dark colors */
-    --bg-1: #1D4F5E;    /* dark buttons when clicked */
-    --bg-2: #154453;    /* dark buttons */
-    --bg-3: #08202B;    /* spacing, secondary elements (the bar's pill teal) */
-    --bg-4: #061A24;    /* main background */
-    --hover: rgba(29, 88, 102, 0.25);
-    --active: rgba(29, 88, 102, 0.45);
-    --active-2: rgba(29, 88, 102, 0.6);
+    --bg-1: #2B3762;    /* dark buttons when clicked */
+    --bg-2: #1E2842;    /* dark buttons */
+    --bg-3: #0E1424;    /* spacing, secondary elements (the bar's pill navy) */
+    --bg-4: #0A0F1C;    /* main background */
+    --hover: rgba(42, 55, 96, 0.25);
+    --active: rgba(42, 55, 96, 0.45);
+    --active-2: rgba(42, 55, 96, 0.6);
     --message-hover: rgba(0, 0, 0, 0.12);
 
-    /* accent colors: sunset peach */
-    --accent-1: #FCCCA8;
-    --accent-2: #FCCCA8;
-    --accent-3: #F5B88E;
-    --accent-4: #FFDDC2;
-    --accent-5: #E8A67C;
-    --accent-new: #FF6B6B; /* mute/deafen in balloon red */
-    --mention: linear-gradient(to right, color-mix(in hsl, #FF6B6B, transparent 88%) 40%, transparent);
-    --mention-hover: linear-gradient(to right, color-mix(in hsl, #FF6B6B, transparent 94%) 40%, transparent);
+    /* accent colors: ribbon blue */
+    --accent-1: #6FA4FF;
+    --accent-2: #6FA4FF;
+    --accent-3: #7AAAFF;
+    --accent-4: #9BC0FF;
+    --accent-5: #5A92F0;
+    --accent-new: #F07A8F; /* mute/deafen in rose red */
+    --mention: linear-gradient(to right, color-mix(in hsl, #9B82FF, transparent 88%) 40%, transparent);
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, #9B82FF, transparent 94%) 40%, transparent);
     --reply: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent);
     --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 95%) 40%, transparent);
 
@@ -110,38 +110,38 @@ body {
 
     /* border colors */
     --border-light: var(--hover);
-    --border: #1F4B58;
-    --border-hover: #2B6F80;
-    --button-border: rgba(244, 230, 218, 0.1);
+    --border: #26304F;
+    --border-hover: #3556A8;
+    --button-border: rgba(223, 230, 251, 0.1);
 
     /* base colors, taken from the terminal scheme */
-    --red-1: #FF8A80;
-    --red-2: #FF6B6B;
-    --red-3: #E5484D;
-    --red-4: #C4161C;
-    --red-5: #9E1217;
+    --red-1: #F59AAB;
+    --red-2: #F07A8F;
+    --red-3: #D9607A;
+    --red-4: #B83A58;
+    --red-5: #8E2C47;
 
-    --green-1: #7FE0C8;
-    --green-2: #5CC8B0;
-    --green-3: #44AF9B;
-    --green-4: #369584;
-    --green-5: #2A7A6C;
+    --green-1: #86D6C0;
+    --green-2: #6FD0B8;
+    --green-3: #5DBFA5;
+    --green-4: #3B9A85;
+    --green-5: #2F7F6E;
 
-    --blue-1: #9FD3E6;
-    --blue-2: #84C1DC;
-    --blue-3: #6FB7C9;
-    --blue-4: #5A9FB2;
-    --blue-5: #46889A;
+    --blue-1: #A9BDF0;
+    --blue-2: #8FAEEE;
+    --blue-3: #7B9BE6;
+    --blue-4: #6A8EE0;
+    --blue-5: #5577C9;
 
-    --yellow-1: #FCCCA8;
-    --yellow-2: #F5B971;
-    --yellow-3: #E9A75E;
-    --yellow-4: #D9954C;
-    --yellow-5: #C4823C;
+    --yellow-1: #6FA4FF;
+    --yellow-2: #F0C48A;
+    --yellow-3: #E6B477;
+    --yellow-4: #D6A462;
+    --yellow-5: #C49250;
 
-    --purple-1: #F2C3C6;
-    --purple-2: #E3A3A8;
-    --purple-3: #D48A90;
-    --purple-4: #C27279;
-    --purple-5: #AD5C63;
+    --purple-1: #D4C8FF;
+    --purple-2: #B9A6FF;
+    --purple-3: #A893FF;
+    --purple-4: #8C74E6;
+    --purple-5: #7A62D6;
 }

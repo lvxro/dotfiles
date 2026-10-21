@@ -1,14 +1,14 @@
-﻿# Red Balloon — PowerShell colors (fallback prompt when Starship is not installed)
-# Loaded from your profile with:  . "$HOME\.config\red-balloon\prompt.ps1"
+﻿# Night Balcony — PowerShell colors (fallback prompt when Starship is not installed)
+# Loaded from your profile with:  . "$HOME\.config\night-balcony\prompt.ps1"
 
 $global:RBE = [char]27
 function global:RBRgb([int]$r, [int]$g, [int]$b) { "$global:RBE[38;2;${r};${g};${b}m" }
 
 $global:RBC = @{
-    Line   = RBRgb 94 130 133     # dark sage  #5E8285
-    Path    = RBRgb 252 204 168    # peach        #FCCCA8
-    Ok      = RBRgb 68 175 155     # cloud mint  #44AF9B
-    Error   = RBRgb 255 107 107    # balloon red  #FF6B6B
+    Line   = RBRgb 90 106 153     # dim haze  #5A6A99
+    Path    = RBRgb 111 164 255    # blue        #6FA4FF
+    Ok      = RBRgb 134 214 192     # sea glass  #5DBFA5
+    Error   = RBRgb 240 122 143    # rose red     #F07A8F
     Reset   = "$global:RBE[0m"
 }
 
@@ -35,15 +35,15 @@ function global:prompt {
 # Input colors (PSReadLine)
 try {
     Set-PSReadLineOption -Colors @{
-        Command   = RBRgb 252 204 168   # peach
-        Parameter = RBRgb 169 203 193   # sage
-        String    = RBRgb 127 224 200   # light mint
-        Variable  = RBRgb 159 211 230   # sky blue
-        Number    = RBRgb 245 185 113   # amber
-        Operator  = RBRgb 169 203 193
-        Comment   = RBRgb 94 130 133
-        Keyword   = RBRgb 227 163 168   # skin pink
-        Error     = RBRgb 255 107 107   # crimson
-        Default   = RBRgb 244 230 218   # cream
+        Command   = RBRgb 111 164 255   # blue
+        Parameter = RBRgb 163 180 224   # haze
+        String    = RBRgb 134 214 192   # sea glass
+        Variable  = RBRgb 94 200 240   # sky blue
+        Number    = RBRgb 240 196 138   # amber
+        Operator  = RBRgb 163 180 224
+        Comment   = RBRgb 90 106 153
+        Keyword   = RBRgb 155 130 255   # eye violet
+        Error     = RBRgb 240 122 143   # rose
+        Default   = RBRgb 223 230 251   # moonlight
     }
 } catch { }
