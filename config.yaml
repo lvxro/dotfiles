@@ -36,7 +36,6 @@ bars:
     widgets:
       left:
       - home
-      - quick_launch     # hidden via CSS; must stay in the bar for Alt+Space to work
       - taskbar          # open apps, replaces the hidden Windows taskbar
       center:
       - clock

@@ -1,0 +1,58 @@
+# Red Balloon for Starship
+# copy to %USERPROFILE%\.config\starship.toml
+add_newline = true
+scan_timeout = 100
+palette = "red_balloon"
+
+format = """
+[╭─](fg:line) $directory$git_branch$git_status$python$nodejs$rust$cmd_duration
+[╰─](fg:line)$character"""
+
+[palettes.red_balloon]
+line = "#5E8285"     # dark sage
+peach = "#FCCCA8"    # sunset peach
+mint = "#7FE0C8"     # cloud mint
+sage = "#A9CBC1"     # cloud sage
+amber = "#F5B971"
+balloon = "#FF6B6B"  # balloon red
+
+[directory]
+style = "bold fg:peach"
+truncation_length = 3
+truncation_symbol = "…/"
+read_only = " 󰌾"
+read_only_style = "fg:balloon"
+format = "[$path]($style)[$read_only]($read_only_style) "
+
+[git_branch]
+symbol = " "
+style = "fg:mint"
+format = "[on](fg:line) [$symbol$branch]($style) "
+
+[git_status]
+style = "fg:amber"
+format = "([$all_status$ahead_behind]($style) )"
+
+[python]
+symbol = " "
+style = "fg:sage"
+format = "[$symbol($version )]($style)"
+
+[nodejs]
+symbol = " "
+style = "fg:sage"
+format = "[$symbol($version )]($style)"
+
+[rust]
+symbol = " "
+style = "fg:sage"
+format = "[$symbol($version )]($style)"
+
+[cmd_duration]
+min_time = 2000
+style = "fg:line"
+format = "[ $duration]($style) "
+
+[character]
+success_symbol = "[❯](bold fg:mint)"
+error_symbol = "[❯](bold fg:balloon)"
